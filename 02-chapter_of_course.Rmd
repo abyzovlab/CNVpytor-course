@@ -22,7 +22,7 @@ This chapter will cover:
 
 CNVpytor is written in python and it works on both python 2 and 3. Please install python before proceeding with the installation steps. 
 
-Code for checking python Version
+The following code can be used to check python version
 
 ```
 python --version
