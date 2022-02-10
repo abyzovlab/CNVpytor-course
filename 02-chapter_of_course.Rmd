@@ -14,17 +14,17 @@ ottr::set_knitr_image_path()
 *Every chapter also needs Learning objectives that will look like this:  
 This chapter will cover:  
 
-- Installation using setup tools
-- Installation using python pip module
+- Installation using setuptools
+- Installation using pip
 - Steps for setting Reference genome
 
 ## Libraries
 
 CNVpytor is written in python and it works on both python 2 and 3. Please install python before proceeding with the installation steps. 
 
-Check Python Version
+Code for checking python Version
 
-```{r}
+```
 python --version
 ```
 
@@ -34,7 +34,6 @@ You can write all your text in sections like this!
 
 ## Installation
 
-CNVpytor
 
 ### Code examples
 
