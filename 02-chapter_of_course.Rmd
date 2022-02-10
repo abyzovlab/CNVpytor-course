@@ -24,7 +24,7 @@ CNVpytor is written is python and in works on both python 2 and 3. Please instal
 
 Check Python Version
 
-```{python}
+```{r}
 python --version
 ```
 
