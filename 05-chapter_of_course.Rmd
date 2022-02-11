@@ -52,7 +52,7 @@ where
 
 ### Plot from interactive mode
 
-The best way to visualize cnvpytor results is interactive mode. Enter interactive mode by typing:
+The best way to visualize CNVpytor results is interactive mode. Enter interactive mode by typing:
 ```
 cnvpytor -root file.pytor -view BIN_SIZE
 ```
