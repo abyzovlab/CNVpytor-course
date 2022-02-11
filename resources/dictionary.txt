@@ -26,3 +26,5 @@ CNA
 CNV
 setuptools
 GC
+fasta
+autosome
