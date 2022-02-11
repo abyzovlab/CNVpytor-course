@@ -2,8 +2,8 @@
 quiz_ch1.md
 2-Installation-and-Setting-Reference-genome.md
 3-Calling-CNV-from-Alignment-file-using-terminal.md
-4-A-new-chapter.md
-5-Topic-of-Section.md
+4-Data-import.md
+5-Import-read-depth-signal.md
 6-A-new-chapter.md
 7-Topic-of-Section.md
 8-A-new-chapter.md
