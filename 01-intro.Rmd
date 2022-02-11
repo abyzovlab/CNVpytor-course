@@ -9,7 +9,7 @@ CNVpytor is a Python package and command line tool for copy number variation (CN
 ## Motivation
 
 
-## Target Audience  
+## Target Audience 
 
 The course is intended for ...
 

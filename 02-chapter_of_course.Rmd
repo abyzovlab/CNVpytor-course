@@ -1,9 +1,6 @@
 
 # Installation and Setting Reference genome
 
-*If you haven't yet read the getting started Wiki pages; [start there](https://github.com/jhudsl/OTTR_Template/wiki/Getting-started)
-
-Every chapter needs to start out with this chunk of code:
 
 ```{r, include = FALSE}
 ottr::set_knitr_image_path()
@@ -53,7 +50,7 @@ The following code will download the latest code from GitHub and use pip to inst
 pip install git+https://github.com/abyzovlab/CNVpytor.git
 ```
 
-### Steps for setting reference genome
+## Steps for setting reference genome
 Commonly used human reference genomes (HG19 and HG38) are integrated and comes with default GitHub installation. Its detects the genome by comparing the chromosome lengths. Although, other reference genomes are also frequently used in practice. This section will guide one to add a new reference genome. 
 
 Now, we will create example configuration file for mouse reference genome `MGSCv37` which contains a list of chromosomes and chromosome lengths:
