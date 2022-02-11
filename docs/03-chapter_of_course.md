@@ -1,5 +1,5 @@
 
-# Calling CNV from alignment file using terminal
+# Calling CNV from Alignment file using terminal
 
 This section will guide to use CNVpytor for calling CNV using Read depth file and incorporating variant information
 
@@ -13,7 +13,7 @@ This chapter will cover:
 - Steps to process variant information.
 
 
-# Calling CNV from alignment file
+## Calling CNV from Alignment file
 
 The following steps can be used to process read depth information from alignment file
 
