@@ -19,15 +19,15 @@ Initialize your CNVpytor project by running:
 > cnvpytor -root file.pytor -rd file.bam [-chrom name1 ...] [-T ref.fa.gz]
 ```
 where:
-
-* file.pytor -- specifies output cnvpytor file (HDF5 file)
+```
+* file.pytor -- specifies output CNVpytor file (HDF5 file)
 * name1 ... -- specifies chromosome name(s).
 * file.bam -- specifies bam/sam/cram file name.
 * -T ref.fa.gz -- specifies reference genome file (only for cram file without reference genome).
-
+```
 
 Chromosome names must be specified the same way as they are described in the sam/bam/cram header, 
-e.g., chrX or X. One can specify multiple chromosomes separated by space. If no chromosome is specified, 
+e.g., chr1 or 1. One can specify multiple chromosomes separated by space. If no chromosome is specified, 
 read mapping is extracted for all chromosomes in the sam/bam file. 
 Note that the pytor file is not being overwritten.
 

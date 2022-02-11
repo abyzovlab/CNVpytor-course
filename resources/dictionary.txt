@@ -28,3 +28,6 @@ setuptools
 GC
 fasta
 autosome
+pytor
+BAM
+bam
