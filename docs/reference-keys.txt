@@ -5,8 +5,11 @@ curriculum
 installation-and-setting-reference-genome
 learning-objectives
 libraries
-topic-of-section
 installation
+install-by-cloning-from-github
+install-using-pip
+steps-for-setting-reference-genome
+create-gc-and-mask-file-for-new-reference-genome
 code-examples
 image-example
 video-examples
@@ -19,7 +22,7 @@ print-out-session-info
 setting-reference-genome
 learning-objectives-1
 libraries-1
-topic-of-section-1
+topic-of-section
 subtopic
 code-examples-1
 image-example-1
