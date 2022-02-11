@@ -7,7 +7,7 @@
 ## Learning Objectives
 
 - Import read depth signal
-- {Another learning objective}
+- Import variant information
 
 # Import read depth signal
 
@@ -76,6 +76,7 @@ Using reference genome: hg19 [ GC: yes, mask: yes ]
 
 Command `-ls` is useful if you want to check content of _pytor_ file but also date and version of CNVpytor 
 that created it.
+
 ## Predicting CNV regions
 
 First we have to chose bin size. By CNVpytor design it have to be divisible by 100. 
@@ -315,3 +316,4 @@ Genotype all called CNVs:
 ```
 > awk '{ print $2 }' calls.10000.tsv | cnvpytor -root file.pytor -genotype 10000 100000
 ```
+
