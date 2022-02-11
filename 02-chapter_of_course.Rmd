@@ -33,7 +33,7 @@ python --version
 
 ### Install by cloning from GitHub
 
-The folloing lines of codes can be used to install directly from GitHub
+The following lines of codes can be used to install directly from GitHub
 
 ```
 > git clone https://github.com/abyzovlab/CNVpytor.git
@@ -48,15 +48,15 @@ For single user (without admin privileges), can use:
 
 ### Install using pip
 
-The following code will download the latest code from github and use pip to install.
+The following code will download the latest code from GitHub and use pip to install.
 ```
 pip install git+https://github.com/abyzovlab/CNVpytor.git
 ```
 
 ### Steps for setting reference genome
-Commonly used human reference genomes (hg19 and hg38) are integrated and comes with defult GitHub installaion. Its detects the genome by comparing the chromosome lenghts. Although, other reference genomes are also frequently used in practice. This section will guide one to add a new reference genome. 
+Commonly used human reference genomes (HG19 and HG38) are integrated and comes with default GitHub installation. Its detects the genome by comparing the chromosome lengths. Although, other reference genomes are also frequently used in practice. This section will guide one to add a new reference genome. 
 
-Now, we will create example configuration file for mouse reference genome MGSCv37 which contains a list of chromosomes and chromosome lengths:
+Now, we will create example configuration file for mouse reference genome `MGSCv37` which contains a list of chromosomes and chromosome lengths:
 
 ```
 # Filename: example_ref_genome_conf.py
@@ -79,28 +79,28 @@ import_reference_genomes = {
     }
 }
 ```
-Letter next to chromosome length denote type of a chromosome: A - autosome, S - sex chromosome, M - mitochondria. The instraction for creating `MGSCv37_gc_file.pytor` and `MGSCv37_mask_file.pytor` is in the next section.
+Letter next to chromosome length denote type of a chromosome: A - autosome, S - sex chromosome, M - mitochondria. The instruction for creating `MGSCv37_gc_file.pytor` and `MGSCv37_mask_file.pytor` is in the next section.
 
 
-To use CNVpytor with new reference genome us -conf option in each cnvpytor command, e.g.
+To use CNVpytor with new reference genome us `-conf` option in each `cnvpytor` command, e.g.
 
 ```
 cnvpytor -conf REL_PATH/example_ref_genome_conf.py -root file.pytor -rd file.bam
 ```
 
-CNVpytor will use chromosome lengths from alignment file to detect reference genome. However, if you configured reference genome after you had already run -rd step you could assign reference genome using -rg:
+CNVpytor will use chromosome lengths from alignment file to detect reference genome. However, if you configured reference genome after you had already run -rd step you could assign reference genome using `-rg`:
 
 ```
 cnvpytor -conf REL_PATH/example_ref_genome_conf.py -root file.pytor -rg mm9
 ```
 
-To avoid typing `-conf REL_PATH/example_ref_genome_conf.py` each time you run cnvpytor, you can create an bash alias or make configuration permanent by copying `example_ref_genome_conf.py` to `~/.cnvpytor/reference_genomes_conf.py`.
+To avoid typing `-conf REL_PATH/example_ref_genome_conf.py` each time you run `cnvpytor`, you can create an bash alias or make configuration permanent by copying `example_ref_genome_conf.py` to `~/.cnvpytor/reference_genomes_conf.py`.
 
 #### Create GC and mask file for new reference genome
 
 CNVpytor also has optional features for GC correction and masking (i.e., commonly known false positive regions). One can setup their reference genome by adding its related content in the `gc_file` and `mask_file` field of the configuration file.  
 
-To create GC file, we need sequence of the reference genome in fasta.gz file:
+To create `GC` file, we need sequence of the reference genome in `fasta.gz` file:
 
 ```
 > cnvpytor -root MGSCv37_gc_file.pytor -gc ~/hg19/mouse.fasta.gz -make_gc_file
