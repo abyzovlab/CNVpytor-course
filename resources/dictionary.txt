@@ -35,3 +35,5 @@ BAF
 VCF
 vcf
 germline
+bp
+kbp

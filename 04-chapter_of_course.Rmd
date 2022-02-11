@@ -100,6 +100,7 @@ Finally we can call CNV regions using commands:
 ```
 
 Result is stored in tab separated files with following columns:
+```
 * CNV type: "deletion" or "duplication",
 * CNV region (chr:start-end),
 * CNV size,
@@ -111,9 +112,11 @@ Result is stored in tab separated files with following columns:
 * q0 -- fraction of reads mapped with q0 quality in call region,
 * pN -- fraction of reference genome gaps (Ns) in call region,
 * dG -- distance from closest large (>100bp) gap in reference genome.
-
+```
 Using viewer mode we can filter calls based on five parameters: 
+```
 CNV size, e-val1, q0, pN and dG:
+```
 
 ```
 > cnvpytor -root file.pytor [file2.pytor ...] -view 10000
@@ -204,6 +207,7 @@ Finally we can call CNV regions using commands:
 ```
 
 Result is stored in tab separated files with following columns:
+```
 * CNV type: "deletion", "duplication", or ”cnnloh", 
 * CNV region (chr:start-end),
 * CNV size,
@@ -231,10 +235,12 @@ Result is stored in tab separated files with following columns:
 * genotype_2 - the second most likely model genotype,
 * likelihood_2 – the second most likely model likelihood,
 * cf_2 -- the second most likely model cell fraction.
+```
 
 Using viewer mode we can filter calls based on five parameters: 
+```
 CNV size, e-val1, q0, pN and dG:
-
+```
 ```
 > cnvpytor -root file.pytor [file2.pytor ...] -view 10000
 cnvpytor> set caller combined_mosaic # IMPORTANT, default caller is mean shift
