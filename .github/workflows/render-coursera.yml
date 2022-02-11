@@ -34,7 +34,7 @@ jobs:
       # Run Coursera version
       - name: Run Coursera version of render
         id: coursera
-        run: Rscript -e "ottr::render_coursera(convert_quizzes = TRUE)"
+        run: Rscript -e "ottr::render_without_toc(convert_quizzes = TRUE)"
 
       # This checks on the steps before it and makes sure that they completed.
       # If the renders didn't complete we don't want to commit the file changes
