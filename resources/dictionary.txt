@@ -31,3 +31,7 @@ autosome
 pytor
 BAM
 bam
+BAF
+VCF
+vcf
+germline
