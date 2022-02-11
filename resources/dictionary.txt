@@ -20,3 +20,8 @@ UE5
 reproducibility
 underserved
 www
+CNVpytor
+Abyzov
+CNA
+CNV
+setuptools

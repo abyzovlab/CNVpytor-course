@@ -29,7 +29,7 @@ _This template and guide helps you_:
 
 <!--Delete everything above this line upon using the template-->
 
-# {Course Name}
+# {CNVpytor Course}
 
 [![Render Bookdown and Coursera](https://github.com/jhudsl/OTTR_Template/actions/workflows/render-bookdown.yml/badge.svg)](https://github.com/jhudsl/OTTR_Template/actions/workflows/render-bookdown.yml)
 
@@ -47,8 +47,8 @@ This course introduces {info on what this course introduces}
 
 This course will teach learners to:  
 
-- {You can use https://www.bobpikegroup.com/trainer-blog/5-steps-to-writing-clear-and-measurable-learning-objectives to define some learning objectives here}
-- {More learning objectives}
+- A brief Introduction to copy number analayis 
+- Copy number Analayis using CNVpytor
 
 ## Encountering problems?
 
