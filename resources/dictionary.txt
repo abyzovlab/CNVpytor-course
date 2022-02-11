@@ -40,3 +40,5 @@ bp
 kbp
 tsv
 sam
+chr
+maf
