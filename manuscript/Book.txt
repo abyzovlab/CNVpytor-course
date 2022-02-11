@@ -1,7 +1,9 @@
 1-Introduction.md
 quiz_ch1.md
-2-A-new-chapter.md
+2-Installation-and-Setting-Reference-genome.md
 3-Topic-of-Section.md
+4-Setting-Reference-genome.md
+5-Topic-of-Section.md
 About-this-Course.md
 About-the-Authors.md
 References.md
