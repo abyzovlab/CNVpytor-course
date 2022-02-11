@@ -1,7 +1,5 @@
 
-# A new chapter
-
-This section will guide to use CNVpytor for calling CNV using Read depth file and incorporating variant information
+# Visualization
 
 ```{r, include = FALSE}
 ottr::set_knitr_image_path()
@@ -9,29 +7,55 @@ ottr::set_knitr_image_path()
 
 ## Learning Objectives
 
-*Every chapter also needs Learning objectives that will look like this:  
 
 This chapter will cover:  
 
-- {You can use https://tips.uark.edu/using-blooms-taxonomy/ to define some learning objectives here}
-- {Another learning objective}
+- Visualization in command line mode
+- Interactive visualization
 
-## Libraries
 
-For this chapter, we'll need the following packages attached:
 
-*Remember to add [any additional packages you need to your course's own docker image](https://github.com/jhudsl/OTTR_Template/wiki/Using-Docker#starting-a-new-docker-image).
+### Plot from command line
 
-```{r}
-library(magrittr)
+Chromosome wide plots:
+```
+> cnvpytor -root file.pytor -plot [rd BIN_SIZE] [likelihood BIN_SIZE] [baf BIN_SIZE] [snp] [-o IMAGE_FILENAME]
+```
+where
+* rd BIN_SIZE -- plots RD signal for all chromosomes
+* likelihood BIN_SIZE -- plots baf likelihood for all chromosomes
+* baf BIN_SIZE -- plots baf/maf/likelihood peak position for all chromosomes
+* snp -- plots baf for each snp for all chromosomes
+* -o IMAGE_FILENAME -- if specified, saves plot in file instead to show on the screen
+
+Manhattan plot:
+```
+> cnvpytor -root file.pytor -plot manhattan BIN_SIZE [-chrom name1 ...] [-o IMAGE_FILENAME]
 ```
 
-# Topic of Section
+Circular plot:
+```
+> cnvpytor -root file.pytor -plot circular BIN_SIZE [-chrom name1 ...] [-o IMAGE_FILENAME]
+```
 
-You can write all your text in sections like this!
+Plot genomic regions:
+```
+> cnvpytor -root file.pytor -plot regions [reg1[,| ]...] BIN_SIZE [-panels [rd] [likelihood] [baf] [snp] ...] [-o IMAGE_FILENAME]
+```
+where
+* reg1 -- comma or space separated regions in form CHR[:START-STOP], e.g. 1:1M-20M 2 3:200k-80000010
+* if regions are comma separated they will be plotted in the same subplot
+* space will split regions in different subplots
+* -panels -- specify which panels to plot: rd likelihood baf snp
+* -o IMAGE_FILENAME -- if specified, saves plot in file instead to show on the screen
 
-## Subtopic
 
-Here's a subheading and some text in this subsection!
+### Plot from interactive mode
 
+The best way to visualize cnvpytor results is interactive mode. Enter interactive mode by typing:
+```
+cnvpytor -root file.pytor -view BIN_SIZE
+```
+
+There is tab completion and help similar to man pages. Type double tab or help to start.
 
