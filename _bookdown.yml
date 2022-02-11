@@ -3,8 +3,11 @@ chapter_name: "Chapter "
 repo: https://github.com/jhudsl/OTTR_Template/
 rmd_files: ["index.Rmd",
             "01-intro.Rmd",
-            "02-chapter_of_course.Rmd",
+            "02-install_ref.Rmd",
             "03-chapter_of_course.Rmd",
+            "04-chapter_of_course.Rmd",
+            "05-chapter_of_course.Rmd",
+            "06-chapter_of_course.Rmd",
             "About.Rmd",
             "References.Rmd"]
 new_session: yes
