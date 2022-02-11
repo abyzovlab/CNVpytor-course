@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Copy Number Analysis using CNVpytor</title>
-  <meta name="description" content="Copy Number Analysis using CNVpytor" />
+  <title>Chapter 4 Calling CNV from alignment file | Copy Number Analysis using CNVpytor</title>
+  <meta name="description" content="Chapter 4 Calling CNV from alignment file | Copy Number Analysis using CNVpytor" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Copy Number Analysis using CNVpytor" />
+  <meta property="og:title" content="Chapter 4 Calling CNV from alignment file | Copy Number Analysis using CNVpytor" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Copy Number Analysis using CNVpytor" />
+  <meta property="og:description" content="Chapter 4 Calling CNV from alignment file | Copy Number Analysis using CNVpytor" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Copy Number Analysis using CNVpytor" />
+  <meta name="twitter:title" content="Chapter 4 Calling CNV from alignment file | Copy Number Analysis using CNVpytor" />
   
-  <meta name="twitter:description" content="Copy Number Analysis using CNVpytor" />
+  <meta name="twitter:description" content="Chapter 4 Calling CNV from alignment file | Copy Number Analysis using CNVpytor" />
   
 
 
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="introduction.html"/>
+<link rel="prev" href="calling-cnv-from-alignment-file-using-terminal.html"/>
+<link rel="next" href="about-the-authors.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -228,14 +228,23 @@ div.csl-indent {
 <div class="hero-image-container">
   <img class= "hero-image" src= "https://github.com/jhudsl/OTTR_Template/raw/main/assets/dasl_thin_main_image.png">
 </div>
-<div id="header">
-<h1 class="title">Copy Number Analysis using CNVpytor</h1>
-<p class="date"><em>February, 2022</em></p>
-</div>
-<div id="about-this-course" class="section level1 unnumbered">
-<h1>About this Course</h1>
-<p>Copy number analysis is the process of detecting copy number information from a genome. This course will guide one to get copy number information from alignment file using CNVpytor.</p>
+<div id="calling-cnv-from-alignment-file" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Calling CNV from alignment file</h1>
+<p>The following steps can be used to process read depth information from alignment file</p>
+<pre><code>&gt; cnvpytor -root file.pytor -rd file.bam</code></pre>
+<p>If the reference genome is human than there is no need to set the reference genome and one can run the following steps.</p>
+<pre><code>&gt; cnvpytor -root file.pytor -his 1000 10000 100000
+&gt; cnvpytor -root file.pytor -partition 1000 10000 100000
+&gt; cnvpytor -root file.pytor -call 1000 10000 100000</code></pre>
+<p>For non human reference genome, please have a look at the section for setting reference genome.</p>
+<div id="importing-and-using-variant-information" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Importing and using variant information:</h2>
+<pre><code>&gt; cnvpytor -root file.pytor -snp file.vcf -sample sample_name
+&gt; cnvpytor -root file.pytor -pileup file.bam                   # OPTIONAL
+&gt; cnvpytor -root file.pytor -mask_snps                         # OPTIONAL 
+&gt; cnvpytor -root file.pytor -baf 10000 100000</code></pre>
 
+</div>
 </div>
 <hr>
 <center> 
@@ -250,8 +259,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="calling-cnv-from-alignment-file-using-terminal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

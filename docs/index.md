@@ -15,3 +15,4 @@ output:
 
 
 # About this Course {-}
+Copy number analysis is the process of detecting copy number information from a genome. This course will guide one to get copy number information from alignment file using CNVpytor. 

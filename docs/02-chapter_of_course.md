@@ -1,9 +1,6 @@
 
 # Installation and Setting Reference genome
 
-*If you haven't yet read the getting started Wiki pages; [start there](https://github.com/jhudsl/OTTR_Template/wiki/Getting-started)
-
-Every chapter needs to start out with this chunk of code:
 
 
 
@@ -51,7 +48,7 @@ The following code will download the latest code from GitHub and use pip to inst
 pip install git+https://github.com/abyzovlab/CNVpytor.git
 ```
 
-### Steps for setting reference genome
+## Steps for setting reference genome
 Commonly used human reference genomes (HG19 and HG38) are integrated and comes with default GitHub installation. Its detects the genome by comparing the chromosome lengths. Although, other reference genomes are also frequently used in practice. This section will guide one to add a new reference genome. 
 
 Now, we will create example configuration file for mouse reference genome `MGSCv37` which contains a list of chromosomes and chromosome lengths:
@@ -110,7 +107,9 @@ For reference genomes where we have strict mask in the same format as [1000 Geno
 > cnvpytor -root MGSCv37_mask_file.pytor -mask ~/hg19/mouse.strict_mask.whole_genome.fasta.gz -make_mask_file
 
 ```
-If you do not have mask file, You can skip this step. Mask file contains information about regions of the genome that are more accessible to next generation sequencing methods using short reads. CNVpytor uses P marked positions to filter SNP-s and read depth signal. If reference genome configuration does not contain mask file, CNVpytor will still be fully functional, apart from the filtering step. You may also generate your own mask file by creating fasta file that contains character "P" if corresponding base pair passes the filter and any character different than "P" if not.
+If you do not have mask file, You can skip this step. Mask file contains information about regions of the genome that are more accessible to next generation sequencing methods using short reads. 
+CNVpytor uses P marked positions to filter SNP-s and read depth signal. If reference genome configuration does not contain mask file, CNVpytor will still be fully functional, apart from the filtering step. 
+You may also generate your own mask file by creating fasta file that contains character "P" if corresponding base pair passes the filter and any character different than "P" if not.
 
 
 
@@ -286,7 +285,7 @@ devtools::session_info()
 ## ─ Packages ───────────────────────────────────────────────────────────────────
 ##  package     * version    date       lib source                            
 ##  assertthat    0.2.1      2019-03-21 [1] RSPM (R 4.0.3)                    
-##  bookdown      0.24       2022-02-10 [1] Github (rstudio/bookdown@88bc4ea) 
+##  bookdown      0.24       2022-02-11 [1] Github (rstudio/bookdown@88bc4ea) 
 ##  callr         3.4.4      2020-09-07 [1] RSPM (R 4.0.2)                    
 ##  cli           2.0.2      2020-02-28 [1] RSPM (R 4.0.0)                    
 ##  crayon        1.3.4      2017-09-16 [1] RSPM (R 4.0.0)                    
@@ -303,11 +302,11 @@ devtools::session_info()
 ##  hms           0.5.3      2020-01-08 [1] RSPM (R 4.0.0)                    
 ##  htmltools     0.5.0      2020-06-16 [1] RSPM (R 4.0.1)                    
 ##  httr          1.4.2      2020-07-20 [1] RSPM (R 4.0.3)                    
-##  knitr         1.33       2022-02-10 [1] Github (yihui/knitr@a1052d1)      
+##  knitr         1.33       2022-02-11 [1] Github (yihui/knitr@a1052d1)      
 ##  lifecycle     1.0.0      2021-02-15 [1] CRAN (R 4.0.2)                    
 ##  magrittr      2.0.2      2022-01-26 [1] CRAN (R 4.0.2)                    
 ##  memoise       1.1.0      2017-04-21 [1] RSPM (R 4.0.0)                    
-##  ottr          0.1.2      2022-02-10 [1] Github (jhudsl/ottr@0c1f578)      
+##  ottr          0.1.2      2022-02-11 [1] Github (jhudsl/ottr@2d03822)      
 ##  pillar        1.4.6      2020-07-10 [1] RSPM (R 4.0.2)                    
 ##  pkgbuild      1.1.0      2020-07-13 [1] RSPM (R 4.0.2)                    
 ##  pkgconfig     2.0.3      2019-09-22 [1] RSPM (R 4.0.3)                    
@@ -320,19 +319,19 @@ devtools::session_info()
 ##  R6            2.4.1      2019-11-12 [1] RSPM (R 4.0.0)                    
 ##  readr         1.4.0      2020-10-05 [1] RSPM (R 4.0.2)                    
 ##  remotes       2.2.0      2020-07-21 [1] RSPM (R 4.0.3)                    
-##  rlang         0.4.10     2022-02-10 [1] Github (r-lib/rlang@f0c9be5)      
-##  rmarkdown     2.10       2022-02-10 [1] Github (rstudio/rmarkdown@02d3c25)
+##  rlang         0.4.10     2022-02-11 [1] Github (r-lib/rlang@f0c9be5)      
+##  rmarkdown     2.10       2022-02-11 [1] Github (rstudio/rmarkdown@02d3c25)
 ##  rprojroot     2.0.2      2020-11-15 [1] CRAN (R 4.0.2)                    
 ##  sessioninfo   1.1.1      2018-11-05 [1] RSPM (R 4.0.3)                    
 ##  stringi       1.5.3      2020-09-09 [1] RSPM (R 4.0.3)                    
 ##  stringr       1.4.0      2019-02-10 [1] RSPM (R 4.0.3)                    
-##  testthat      3.0.1      2022-02-10 [1] Github (R-lib/testthat@e99155a)   
+##  testthat      3.0.1      2022-02-11 [1] Github (R-lib/testthat@e99155a)   
 ##  tibble        3.0.3      2020-07-10 [1] RSPM (R 4.0.2)                    
-##  usethis       2.1.5.9000 2022-02-10 [1] Github (r-lib/usethis@57b109a)    
+##  usethis       2.1.5.9000 2022-02-11 [1] Github (r-lib/usethis@57b109a)    
 ##  vctrs         0.3.4      2020-08-29 [1] RSPM (R 4.0.2)                    
 ##  webshot       0.5.2      2019-11-22 [1] RSPM (R 4.0.3)                    
 ##  withr         2.3.0      2020-09-22 [1] RSPM (R 4.0.2)                    
-##  xfun          0.26       2022-02-10 [1] Github (yihui/xfun@74c2a66)       
+##  xfun          0.26       2022-02-11 [1] Github (yihui/xfun@74c2a66)       
 ##  yaml          2.2.1      2020-02-01 [1] RSPM (R 4.0.3)                    
 ## 
 ## [1] /usr/local/lib/R/site-library
