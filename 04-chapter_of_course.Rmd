@@ -76,11 +76,11 @@ used and are there available GC and mask data:
 Using reference genome: hg19 [ GC: yes, mask: yes ]
 ```
 
-Command -ls is useful if you want to check content of _pytor_ file but also date and version of cnvpytor 
+Command `-ls` is useful if you want to check content of _pytor_ file but also date and version of CNVpytor 
 that created it.
 ## Predicting CNV regions
 
-First we have to chose bin size. By cnvpytor design it have to be divisible by 100. 
+First we have to chose bin size. By CNVpytor design it have to be divisible by 100. 
 Here we will use 10 kbp and 100 kbp bins.
 
 To calculate read depth histograms, GC correction and statistics type:
@@ -135,7 +135,7 @@ cnvpytor> print calls                # generate output file with filtered calls
 cnvpytor> quit
 ```
 
-Upper bound for parameters _size_range_ and _dG_range_ can be _inf_ (infinity).
+Upper bound for parameters `size_range` and `dG_range` can be _inf_ (infinity).
 
 If there are multiple samples (pytor files) there will be an additional 
 column with sample name in tsv format, multiple sheets in Excel format, and
@@ -258,7 +258,7 @@ cnvpytor> print calls                # generate output file with filtered calls
 cnvpytor> quit
 ```
 
-Upper bound for parameters _size_range_ and _dG_range_ can be _inf_ (infinity).
+Upper bound for parameters `size_range` and `dG_range` can be _inf_ (infinity).
 
 If there are multiple samples (pytor files) there will be an additional 
 column with sample name in tsv format, multiple sheets in Excel format, and

@@ -32,8 +32,11 @@ pytor
 BAM
 bam
 BAF
+baf
 VCF
 vcf
 germline
 bp
 kbp
+tsv
+sam
