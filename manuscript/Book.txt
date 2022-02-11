@@ -1,8 +1,13 @@
 1-Introduction.md
 quiz_ch1.md
 2-Installation-and-Setting-Reference-genome.md
-3-Calling-CNV-from-alignment-file-using-terminal.md
-4-Calling-CNV-from-alignment-file.md
+3-Calling-CNV-from-Alignment-file-using-terminal.md
+4-A-new-chapter.md
+5-Topic-of-Section.md
+6-A-new-chapter.md
+7-Topic-of-Section.md
+8-A-new-chapter.md
+9-Topic-of-Section.md
 About-this-Course.md
 About-the-Authors.md
 References.md
