@@ -1,5 +1,5 @@
 
-# Installation and Setting Reference genome
+# Setting Reference genome
 
 *If you haven't yet read the getting started Wiki pages; [start there](https://github.com/jhudsl/OTTR_Template/wiki/Getting-started)
 
@@ -10,28 +10,30 @@ Every chapter needs to start out with this chunk of code:
 ## Learning Objectives
 
 *Every chapter also needs Learning objectives that will look like this:  
+
 This chapter will cover:  
 
-- Installation using setuptools
-- Installation using pip
-- Steps for setting Reference genome
+- {You can use https://tips.uark.edu/using-blooms-taxonomy/ to define some learning objectives here}
+- {Another learning objective}
 
 ## Libraries
 
-CNVpytor is written in python and it works on both python 2 and 3. Please install python before proceeding with the installation steps. 
+For this chapter, we'll need the following packages attached:
 
-The following code can be used to check python version
+*Remember to add [any additional packages you need to your course's own docker image](https://github.com/jhudsl/OTTR_Template/wiki/Using-Docker#starting-a-new-docker-image).
 
-```
-python --version
+
+```r
+library(magrittr)
 ```
 
 # Topic of Section
 
 You can write all your text in sections like this!
 
-## Installation
+## Subtopic
 
+Here's a subheading and some text in this subsection!
 
 ### Code examples
 
@@ -52,7 +54,7 @@ And make plots too:
 hist_plot <- hist(iris$Sepal.Length)
 ```
 
-![](resources/images/02-chapter_of_course_files/figure-docx/unnamed-chunk-3-1.png)<!-- -->
+![](resources/images/03-chapter_of_course_files/figure-docx/unnamed-chunk-4-1.png)<!-- -->
 
 You can also save these plots to file:
 
@@ -99,7 +101,7 @@ dev.off()
 
 How to include a Google slide. It's simplest to use the `ottr` package:
 
-![](resources/images/02-chapter_of_course_files/figure-docx//1YmwKdIy9BeQ3EShgZhvtb3MgR8P6iDX4DfFD65W_gdQ_gcc4fbee202_0_141.png)
+![](resources/images/03-chapter_of_course_files/figure-docx//1YmwKdIy9BeQ3EShgZhvtb3MgR8P6iDX4DfFD65W_gdQ_gcc4fbee202_0_141.png)
 
 But if you have the slide or some other image locally downloaded you can also use html like this:
 
@@ -124,7 +126,7 @@ If you are unfamiliar with [how R Markdown code chunks work, read this](https://
 
 OR this works:
 
-<iframe src="https://www.youtube.com/watch?v=RJMQtrD0SuE width="672" height="400px"></iframe>
+<iframe src="https://www.youtube.com/embed/VOCYL-FNbr0" width="672" height="400px"></iframe>
 
 ### Links to files
 
@@ -224,7 +226,7 @@ devtools::session_info()
 ##  httr          1.4.2      2020-07-20 [1] RSPM (R 4.0.3)                    
 ##  knitr         1.33       2022-02-10 [1] Github (yihui/knitr@a1052d1)      
 ##  lifecycle     1.0.0      2021-02-15 [1] CRAN (R 4.0.2)                    
-##  magrittr      2.0.2      2022-01-26 [1] CRAN (R 4.0.2)                    
+##  magrittr    * 2.0.2      2022-01-26 [1] CRAN (R 4.0.2)                    
 ##  memoise       1.1.0      2017-04-21 [1] RSPM (R 4.0.0)                    
 ##  ottr          0.1.2      2022-02-10 [1] Github (jhudsl/ottr@0c1f578)      
 ##  pillar        1.4.6      2020-07-10 [1] RSPM (R 4.0.2)                    
