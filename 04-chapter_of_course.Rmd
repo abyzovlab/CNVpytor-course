@@ -1,7 +1,6 @@
 
-# A new chapter
+# Data import 
 
-This section will guide to use CNVpytor for calling CNV using Read depth file and incorporating variant information
 
 ```{r, include = FALSE}
 ottr::set_knitr_image_path()
@@ -9,148 +8,312 @@ ottr::set_knitr_image_path()
 
 ## Learning Objectives
 
-*Every chapter also needs Learning objectives that will look like this:  
-
-This chapter will cover:  
-
-- {You can use https://tips.uark.edu/using-blooms-taxonomy/ to define some learning objectives here}
+- Import read depth signal
 - {Another learning objective}
 
-## Libraries
+# Import read depth signal
 
-For this chapter, we'll need the following packages attached:
-
-*Remember to add [any additional packages you need to your course's own docker image](https://github.com/jhudsl/OTTR_Template/wiki/Using-Docker#starting-a-new-docker-image).
-
-```{r}
-library(magrittr)
+Make sure that you have indexed alignment (SAM, BAM or CRAM) file.
+Initialize your CNVpytor project by running:
+```
+> cnvpytor -root file.pytor -rd file.bam [-chrom name1 ...] [-T ref.fa.gz]
+```
+where:
+```
+* file.pytor -- specifies output CNVpytor file (HDF5 file)
+* name1 ... -- specifies chromosome name(s).
+* file.bam -- specifies bam/sam/cram file name.
+* -T ref.fa.gz -- specifies reference genome file (only for cram file without reference genome).
 ```
 
-# Topic of Section
+Chromosome names must be specified the same way as they are described in the sam/bam/cram header, 
+e.g., chr1 or 1. One can specify multiple chromosomes separated by space. If no chromosome is specified, 
+read mapping is extracted for all chromosomes in the sam/bam file. 
+Note that the pytor file is not being overwritten.
 
-You can write all your text in sections like this!
+**Examples:**
 
-## Subtopic
-
-Here's a subheading and some text in this subsection!
-
-### Code examples
-
-You can demonstrate code like this:
-
-```{r}
-output_dir <- file.path("resources", "code_output")
-if (!dir.exists(output_dir)) {
-  dir.create(output_dir)
-}
+```
+> cnvpytor -root NA12878.pytor -chrom 1 2 3 -rd NA12878_ali.bam
+```
+for bam files with a header like this:
+```
+@HD VN:1.4 GO:none SO:coordinate
+@SQ SN:1 LN:249250621
+@SQ SN:2 LN:243199373
+@SQ SN:3 LN:198022430
 ```
 
-And make plots too:
-
-```{r}
-hist_plot <- hist(iris$Sepal.Length)
+or
+```
+> cnvpytor -root NA12878.pytor -chrom chr1 chr2 chr3 -rd NA12878_ali.bam
+```
+for bam files with a header like this:
+```
+@HD VN:1.4 GO:none SO:coordinate
+@SQ SN:chr1 LN:249250621
+@SQ SN:chr2 LN:243199373
+@SQ SN:chr3 LN:198022430
 ```
 
-You can also save these plots to file:
 
-```{r}
-png(file.path(output_dir, "test_plot.png"))
-hist_plot
-dev.off()
+After -rd step file file.pytor is created and read depth data binned to 100 base pair bins will be stored 
+in _pytor_ file.
+
+Chromosome names and lengths are parsed from the input file header and used to 
+detect reference genome.
+
+## check reference genome
+To check is reference genome detected use:
+
+```
+> cnvpytor -root file.pytor -ls
 ```
 
-### Image example
-
-How to include a Google slide. It's simplest to use the `ottr` package:
-
-```{r, fig.align='center', echo = FALSE, fig.alt= "Major point!! example image"}
-ottr::include_slide("https://docs.google.com/presentation/d/1YmwKdIy9BeQ3EShgZhvtb3MgR8P6iDX4DfFD65W_gdQ/edit#slide=id.gcc4fbee202_0_141")
+CNVpytor will print out details about file.pytor including line that specify which reference genome is
+used and are there available GC and mask data:
+```
+Using reference genome: hg19 [ GC: yes, mask: yes ]
 ```
 
-But if you have the slide or some other image locally downloaded you can also use html like this:
+Command `-ls` is useful if you want to check content of _pytor_ file but also date and version of CNVpytor 
+that created it.
+## Predicting CNV regions
 
-<img src="resources/images/02-chapter_of_course_files/figure-html//1YmwKdIy9BeQ3EShgZhvtb3MgR8P6iDX4DfFD65W_gdQ_gcc4fbee202_0_141.png" title="Major point!! example image" alt="Major point!! example image" style="display: block; margin: auto;" />
+First we have to chose bin size. By CNVpytor design it have to be divisible by 100. 
+Here we will use 10 kbp and 100 kbp bins.
 
-### Video examples
-
-To show videos in your course, you can use markdown syntax like this:
-
-[A video we want to show](https://www.youtube.com/embed/VOCYL-FNbr0)
-
-Alternatively, you can use `knitr::include_url()` like this:
-Note that we are using `echo=FALSE` in the code chunk because we don't want the code part of this to show up.
-If you are unfamiliar with [how R Markdown code chunks work, read this](https://rmarkdown.rstudio.com/lesson-3.html).
-
-```{r, echo=FALSE}
-knitr::include_url("https://www.youtube.com/embed/VOCYL-FNbr0")
+To calculate read depth histograms, GC correction and statistics type:
+```
+> cnvpytor -root file.pytor -his 10000 100000
 ```
 
-OR this works:
-
-<iframe src="https://www.youtube.com/embed/VOCYL-FNbr0" width="672" height="400px"></iframe>
-
-### Links to files
-
-This works:
-
-```{r, fig.align="center", echo=FALSE}
-knitr::include_url("https://www.messiah.edu/download/downloads/id/921/Microaggressions_in_the_Classroom.pdf", height = "800px")
+Next step is partitioning using mean-shift method:
+```
+> cnvpytor -root file.pytor -partition 10000 100000
 ```
 
-Or this:
-
-[This works](https://www.messiah.edu/download/downloads/id/921/Microaggressions_in_the_Classroom.pdf).
-
-Or this:
-
-<iframe src="https://www.messiah.edu/download/downloads/id/921/Microaggressions_in_the_Classroom.pdf" width="672" height="800px"></iframe>
-
-### Links to websites
-
-Examples of including a website link.
-
-This works:
-
-```{r, fig.align="center", echo=FALSE}
-knitr::include_url("https://yihui.org")
+Finally we can call CNV regions using commands:
+```
+> cnvpytor -root file.pytor -call 10000 > calls.10000.tsv
+> cnvpytor -root file.pytor -call 100000 > calls.100000.tsv
 ```
 
-OR this:
+Result is stored in tab separated files with following columns:
+```
+* CNV type: "deletion" or "duplication",
+* CNV region (chr:start-end),
+* CNV size,
+* CNV level - read depth normalized to 1,
+* e-val1 -- e-value (p-value multiplied by genome size divided by bin size) calculated using t-test statistics between RD statistics in the region and global,
+* e-val2 -- e-value (p-value multiplied by genome size divided by bin size) from the probability of RD values within the region to be in the tails of a gaussian distribution of binned RD,
+* e-val3 -- same as e-val1 but for the middle of CNV,
+* e-val4 -- same as e-val2 but for the middle of CNV,
+* q0 -- fraction of reads mapped with q0 quality in call region,
+* pN -- fraction of reference genome gaps (Ns) in call region,
+* dG -- distance from closest large (>100bp) gap in reference genome.
+```
+Using viewer mode we can filter calls based on five parameters: 
+```
+CNV size, e-val1, q0, pN and dG:
+```
 
-![Another link](https://yihui.org)
+```
+> cnvpytor -root file.pytor [file2.pytor ...] -view 10000
 
-OR this:
+cnvpytor> set Q0_range -1 0.5        # filter calls with more than half not uniquely mapped reads
+cnvpytor> set p_range 0 0.0001       # filter non-confident calls 
+cnvpytor> set p_N 0 0.5              # filter calls with more than 50% Ns in reference genome 
+cnvpytor> set size_range 50000 inf   # filter calls smaller than 50kbp 
+cnvpytor> set dG_range 100000 inf    # filter calls close to gaps in reference genome (<100kbp)
+cnvpytor> print calls                # printing calls on screen (tsv format)
+...
+...
+cnvpytor> set print_filename file.xlsx   # output filename (xlsx, tsv or vcf)
+cnvpytor> set annotate               # turn on annotation (optional - takes a lot of time)
+cnvpytor> print calls                # generate output file with filtered calls 
+cnvpytor> quit
+```
 
-<iframe src="https://yihui.org" width="672" height="400px"></iframe>
+Upper bound for parameters `size_range` and `dG_range` can be _inf_ (infinity).
 
-### Citation examples
+If there are multiple samples (pytor files) there will be an additional 
+column with sample name in tsv format, multiple sheets in Excel format, and
+multiple sample columns in vcf format.
 
-We can put citations at the end of a sentence like this [@rmarkdown2021].
-Or multiple citations [@rmarkdown2021, @Xie2018].
 
-but they need a ; separator [@rmarkdown2021; @Xie2018].
+## Import SNP data
 
-In text, we can put citations like this @rmarkdown2021.
+### From variant file
 
-### FYI boxes
+To import variant data from VCF file use following command:
+```
+> cnvpytor -root file.pytor -snp file.vcf.gz [-sample sample_name] [-chrom name1 ...] [-ad AD_TAG] [-gt GT_TAG] [-noAD]
+```
+where:
+```
+* file.pytor -- specifies cnvpytor file,
+* file.vcf -- specifies variant file name.
+* sample_name -- specifies VCF sample name,
+* name1 ... -- specifies chromosome name(s),
+* -ad AD_TAG -- specifies AD tag used in vcf file (default AD)
+* -gt GT_TAG -- specifies GT tag used in vcf file (default GT)
+* -noAD -- ref and alt read counts will not be readed (see next section)
+```
+Chromosome names must be specified the same way as they are described in the vcf header, 
+e.g., chr1 or 1. One can specify multiple chromosomes separated by space. If no chromosome is specified, 
+all chromosomes from the vcf file will be parsed.
 
-::: {.fyi}
-Please click on the subsection headers in the left hand
-navigation bar (e.g., 2.1, 4.3) a second time to expand the
-table of contents and enable the `scroll_highlight` feature
-([see more](introduction.html#scroll-highlight)).
-:::
+If chromosome names in variant and alignment file are different in prefix chr (e.g. in "1" and "chr1")
+CNVpytor will detect it and match the names using first imported name for both signals.
 
-### Dropdown summaries
+### Using SNP positions from variant file and counts from alignment file
 
-<details><summary> You can hide additional information in a dropdown menu </summary>
-Here's more words that are hidden.
-</details>
+In some cases it is useful to read positions of SNPs from vcf file and 
+extract read counts from bam file. For example if we have two samples, normal tissue and 
+cancer, normal can be used to call germline SNPs, while `samtools mpileup` procedure can be used 
+to calculate read counts in cancer sample at the positions of SNPs. CNVpytor have
+implemented this procedure. After reading SNP positions (previous step) type:
 
-## Print out session info
+```
+> cnvpytor -root file.pytor -pileup file.bam [-T ref.fa.gz]
+```
+where
+```
+* file.pytor -- specifies cnvpytor file,
+* file.bam -- specifies bam/sam/cram file,
+* -T ref.fa.gz -- specifies reference genome file (only for cram file without reference genome).
+```
 
-You should print out session info when you have code for [reproducibility purposes](https://jhudatascience.org/Reproducibility_in_Cancer_Informatics/managing-package-versions.html).
+### Calculating BAF histograms
 
-```{r}
-devtools::session_info()
+To apply 1000 genomes strict mask filter:
+```
+> cnvpytor -root file.pytor -mask_snps
+```
+
+To calculate baf histograms for maf, baf and likelihood function for baf use:
+```
+> cnvpytor -root file.pytor -baf 10000 100000 [-nomask]
+```
+
+### Predicting CNV regions using joint caller (prototype)
+
+
+Finally we can call CNV regions using commands:
+```
+> cnvpytor -root file.pytor -call combined 10000 > calls.combined.10000.tsv
+> cnvpytor -root file.pytor -call combined 100000 > calls.combined.100000.tsv
+```
+
+Result is stored in tab separated files with following columns:
+```
+* CNV type: "deletion", "duplication", or ”cnnloh", 
+* CNV region (chr:start-end),
+* CNV size,
+* CNV level - read depth normalized to 1,
+* e-val1 -- e-value (p-value multiplied by genome size divided by bin size) calculated using t-test statistics between RD statistics in the region and global,
+* e-val2 -- e-value (p-value multiplied by genome size divided by bin size) from the probability of RD values within the region to be in the tails of a gaussian distribution of binned RD,
+* e-val3 -- same as e-val1 but for the middle of CNV,
+* e-val4 -- same as e-val2 but for the middle of CNV,
+* q0 -- fraction of reads mapped with q0 quality in call segments,
+* pN -- fraction of reference genome gaps (Ns) within call region,
+* dNS -- fraction of reference genome gaps (Ns) within call segments,
+* pP -- fraction of P bases (1kGP strict mask) within call segments,
+* bin_size – size of bins
+* n – number of bins within call segments,
+* delta_BAF – change in BAF from ½,
+* e-val1 -- e-value RD based (repeted, reserved for future upgrades),
+* baf_eval – e-value BAF based,
+* hets – number of HETs,
+* homs – number of HOMs,
+* cn_1 – most likely model copy number,
+* genotype_1 - most likely model genotype,
+* likelihood_1 – most likely model likelihood,
+* cf_1 -- most likely model cell fraction,
+* cn_2 – the second most likely model copy number,
+* genotype_2 - the second most likely model genotype,
+* likelihood_2 – the second most likely model likelihood,
+* cf_2 -- the second most likely model cell fraction.
+```
+
+Using viewer mode we can filter calls based on five parameters: 
+```
+CNV size, e-val1, q0, pN and dG:
+```
+```
+> cnvpytor -root file.pytor [file2.pytor ...] -view 10000
+cnvpytor> set caller combined_mosaic # IMPORTANT, default caller is mean shift
+cnvpytor> set Q0_range -1 0.5        # filter calls with more than half not uniquely mapped reads
+cnvpytor> set p_range 0 0.0001       # filter non-confident calls 
+cnvpytor> set p_N 0 0.5              # filter calls with more than 50% Ns in reference genome 
+cnvpytor> set size_range 50000 inf   # filter calls smaller than 50kbp 
+cnvpytor> set dG_range 100000 inf    # filter calls close to gaps in reference genome (<100kbp)
+cnvpytor> print calls                # printing calls on screen (tsv format)
+...
+...
+cnvpytor> set print_filename file.xlsx   # output filename (xlsx, tsv or vcf)
+cnvpytor> set annotate               # turn on annotation (optional - takes a lot of time)
+cnvpytor> print calls                # generate output file with filtered calls 
+cnvpytor> quit
+```
+
+Upper bound for parameters `size_range` and `dG_range` can be _inf_ (infinity).
+
+If there are multiple samples (pytor files) there will be an additional 
+column with sample name in tsv format, multiple sheets in Excel format, and
+multiple sample columns in vcf format.
+
+Comparison between `CNVnator` and `CNVpytor` callers output format:
+
+<img src="https://raw.githubusercontent.com/abyzovlab/CNVpytor/master/imgs/joint_caller_output.png">
+
+
+## Genotyping genomic regions
+
+Using -genotype option followed by bin_sizes you can enter region and genotype calculation
+for each bin size will be performed:
+
+```
+> cnvpytor -root file.pytor -genotype 10000 100000
+12:11396601-11436500
+12:11396601-11436500    1.933261    1.937531
+22:20999401-21300400
+22:20999401-21300400    1.949186    1.957068
+```
+
+Genotyping with additional information:
+```
+> cnvpytor -root file.pytor -genotype 10000 -a [-rd_use_mask] [-nomask]
+12:11396601-11436500
+12:11396601-11436500    2.0152  1.629621e+04    9.670589e+08    0.0000  0.0000  4156900 1.0000  50      4       0.0000  1.000000e+00
+```
+
+Output columns are:
+```
+1. region,
+1. cnv level -- mean RD normalized to mean autosomal RD level,
+1. e_val_1 -- p value calculated using t-test statistics between RD statistics in the region and global,
+1. e_val_2 -- p value from the probability of RD values within the region to be in the tails of a gaussian distribution of binned RD,
+1. q0 – fraction of reads mapped with q0 quality within call region,
+1. pN – fraction of reference genome gaps (Ns) within call region,
+1. dG -- distance from closest large (>100bp) gap in reference genome,
+1. proportion of bins used in RD calculation (with option _-rd_use_mask_ some bins can be filtered out),
+1. Number of homozygous variants within region,
+1. Number of heterozygous variants,
+1. BAF level (difference from 0.5) for HETs estimated using maximum likelihood method,
+1. p-value based on BAF signal.
+
+
+Option _-rd_use_mask_ turns on P filtering (1000 Genome Project strict mask) for RD signal.
+
+Option _-nomak_ turns off P filtering of SNPs (1000 Genome Project strict mask) for BAF signal.
+```
+
+**Example:**
+
+Genotype all called CNVs:
+
+```
+> awk '{ print $2 }' calls.10000.tsv | cnvpytor -root file.pytor -genotype 10000 100000
 ```
