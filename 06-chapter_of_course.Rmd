@@ -1,7 +1,5 @@
 
-# A new chapter
-
-This section will guide to use CNVpytor for calling CNV using Read depth file and incorporating variant information
+# Visualize CNVpytor data inside JBrowse
 
 ```{r, include = FALSE}
 ottr::set_knitr_image_path()
@@ -9,148 +7,73 @@ ottr::set_knitr_image_path()
 
 ## Learning Objectives
 
-*Every chapter also needs Learning objectives that will look like this:  
-
 This chapter will cover:  
 
-- {You can use https://tips.uark.edu/using-blooms-taxonomy/ to define some learning objectives here}
-- {Another learning objective}
+- How to visualize CNVpytor data in JBrowse.
 
 ## Libraries
 
-For this chapter, we'll need the following packages attached:
 
-*Remember to add [any additional packages you need to your course's own docker image](https://github.com/jhudsl/OTTR_Template/wiki/Using-Docker#starting-a-new-docker-image).
+```
+JBrowse version: https://github.com/GMOD/jbrowse/archive/1.16.6-release.tar.gz
+ Plugins: 
+ - multibigwig (https://github.com/elsiklab/multibigwig )
+ - multiscalebigwig (https://github.com/cmdcolin/multiscalebigwig)
 
-```{r}
-library(magrittr)
+ **Note:** The JBrowse development version is required as integration of different jbrowse plugins are needed.
 ```
 
-# Topic of Section
+## Steps to process CNVpytor data for JBrowse integration
 
-You can write all your text in sections like this!
+To generate CNVpytor file for JBrowse visualization:
+```
+cnvpytor -root [pytor files] -export jbrowse [optional argument: output path]
 
-## Subtopic
+Default export directory name: 
+ - For single pytor file input:  jbrowse_[pytor file name]
+ - For multiple pytor file input: cnvpytor_jbrowse_export
+```
+The above command creates all the necessary files that are required to visualize the CNVpytor data. 
 
-Here's a subheading and some text in this subsection!
+To view CNVpytor file using JBrowse, users need to install JBrowse and required plugins (See JBrowse version and plugins section).
+`
+http://localhost/jbrowse/?data=[export directory] 
+`
 
-### Code examples
-
-You can demonstrate code like this:
-
-```{r}
-output_dir <- file.path("resources", "code_output")
-if (!dir.exists(output_dir)) {
-  dir.create(output_dir)
-}
+``` 
+# Example usage
+cnvpytor -root test.pytor -export jbrowse
+http://localhost/jbrowse/?data=jbrowse_test
 ```
 
-And make plots too:
+#### Data Description
+There are mainly two types of data CNVpytor processes. i.e.; Read depth data from alignment file and SNP data from variant file. Depending on the availability of these two input data, the export function works.
 
-```{r}
-hist_plot <- hist(iris$Sepal.Length)
-```
+For Read depth data, it exports Raw segmented RD, GC corrected Raw Segmented RD, GC corrected RD partition, CNV calling using RD . All of these Read depth signals are plotted on top of each other on a single horizontal track using color gray, black, red and green respectively.
+For SNP data, it exports Binned BAF, Likelihood of the binned BAF signals. These two signals are plotted on top of each other with gray and red color.
 
-You can also save these plots to file:
+<p align="center"></p>
+<table>
+    <thead>
+        <tr>
+            <th align="left">Data</th>
+            <th align="center">Signal name with color on JBrowse </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="left">Read Depth (RD)</td>
+            <td align="left">Raw Segmented RD (Gray) <br>GC Corrected Raw Segmented RD (Black) <br> GC corrected RD partition (Red) <br> CNV call using RD signals (Green)</td>
+        </tr>
+        <tr>
+            <td align="left">SNP</td>
+            <td align="left">Binned BAF (Gray) <br> Likelihood of the Binned BAF (Red)</td>
+        </tr>
+    </tbody>
+</table>
+<p></p>
 
-```{r}
-png(file.path(output_dir, "test_plot.png"))
-hist_plot
-dev.off()
-```
+CNVpytor does the segmentation for all of the above data based on the user provided bin size. The `multiscalebigwig` provides the option to show the data based on the visualized area on the reference genome, which means if a user visualizes a small region of the genome it shows small bin data and vice versa.           
+!
 
-### Image example
 
-How to include a Google slide. It's simplest to use the `ottr` package:
-
-```{r, fig.align='center', echo = FALSE, fig.alt= "Major point!! example image"}
-ottr::include_slide("https://docs.google.com/presentation/d/1YmwKdIy9BeQ3EShgZhvtb3MgR8P6iDX4DfFD65W_gdQ/edit#slide=id.gcc4fbee202_0_141")
-```
-
-But if you have the slide or some other image locally downloaded you can also use html like this:
-
-<img src="resources/images/02-chapter_of_course_files/figure-html//1YmwKdIy9BeQ3EShgZhvtb3MgR8P6iDX4DfFD65W_gdQ_gcc4fbee202_0_141.png" title="Major point!! example image" alt="Major point!! example image" style="display: block; margin: auto;" />
-
-### Video examples
-
-To show videos in your course, you can use markdown syntax like this:
-
-[A video we want to show](https://www.youtube.com/embed/VOCYL-FNbr0)
-
-Alternatively, you can use `knitr::include_url()` like this:
-Note that we are using `echo=FALSE` in the code chunk because we don't want the code part of this to show up.
-If you are unfamiliar with [how R Markdown code chunks work, read this](https://rmarkdown.rstudio.com/lesson-3.html).
-
-```{r, echo=FALSE}
-knitr::include_url("https://www.youtube.com/embed/VOCYL-FNbr0")
-```
-
-OR this works:
-
-<iframe src="https://www.youtube.com/embed/VOCYL-FNbr0" width="672" height="400px"></iframe>
-
-### Links to files
-
-This works:
-
-```{r, fig.align="center", echo=FALSE}
-knitr::include_url("https://www.messiah.edu/download/downloads/id/921/Microaggressions_in_the_Classroom.pdf", height = "800px")
-```
-
-Or this:
-
-[This works](https://www.messiah.edu/download/downloads/id/921/Microaggressions_in_the_Classroom.pdf).
-
-Or this:
-
-<iframe src="https://www.messiah.edu/download/downloads/id/921/Microaggressions_in_the_Classroom.pdf" width="672" height="800px"></iframe>
-
-### Links to websites
-
-Examples of including a website link.
-
-This works:
-
-```{r, fig.align="center", echo=FALSE}
-knitr::include_url("https://yihui.org")
-```
-
-OR this:
-
-![Another link](https://yihui.org)
-
-OR this:
-
-<iframe src="https://yihui.org" width="672" height="400px"></iframe>
-
-### Citation examples
-
-We can put citations at the end of a sentence like this [@rmarkdown2021].
-Or multiple citations [@rmarkdown2021, @Xie2018].
-
-but they need a ; separator [@rmarkdown2021; @Xie2018].
-
-In text, we can put citations like this @rmarkdown2021.
-
-### FYI boxes
-
-::: {.fyi}
-Please click on the subsection headers in the left hand
-navigation bar (e.g., 2.1, 4.3) a second time to expand the
-table of contents and enable the `scroll_highlight` feature
-([see more](introduction.html#scroll-highlight)).
-:::
-
-### Dropdown summaries
-
-<details><summary> You can hide additional information in a dropdown menu </summary>
-Here's more words that are hidden.
-</details>
-
-## Print out session info
-
-You should print out session info when you have code for [reproducibility purposes](https://jhudatascience.org/Reproducibility_in_Cancer_Informatics/managing-package-versions.html).
-
-```{r}
-devtools::session_info()
-```

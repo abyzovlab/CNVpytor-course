@@ -42,3 +42,5 @@ tsv
 sam
 chr
 maf
+snp
+JBrowse
