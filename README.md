@@ -29,7 +29,7 @@ _This template and guide helps you_:
 
 <!--Delete everything above this line upon using the template-->
 
-# {CNVpytor Course}
+# Copy Number Analysis using CNVpytor
 
 [![Render Bookdown and Coursera](https://github.com/jhudsl/OTTR_Template/actions/workflows/render-bookdown.yml/badge.svg)](https://github.com/jhudsl/OTTR_Template/actions/workflows/render-bookdown.yml)
 
