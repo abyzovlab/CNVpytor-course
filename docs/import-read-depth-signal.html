@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Topic of Section | Copy Number Analysis using CNVpytor</title>
-  <meta name="description" content="Chapter 9 Topic of Section | Copy Number Analysis using CNVpytor" />
+  <title>Chapter 5 Import read depth signal | Copy Number Analysis using CNVpytor</title>
+  <meta name="description" content="Chapter 5 Import read depth signal | Copy Number Analysis using CNVpytor" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Topic of Section | Copy Number Analysis using CNVpytor" />
+  <meta property="og:title" content="Chapter 5 Import read depth signal | Copy Number Analysis using CNVpytor" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Chapter 9 Topic of Section | Copy Number Analysis using CNVpytor" />
+  <meta property="og:description" content="Chapter 5 Import read depth signal | Copy Number Analysis using CNVpytor" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Topic of Section | Copy Number Analysis using CNVpytor" />
+  <meta name="twitter:title" content="Chapter 5 Import read depth signal | Copy Number Analysis using CNVpytor" />
   
-  <meta name="twitter:description" content="Chapter 9 Topic of Section | Copy Number Analysis using CNVpytor" />
+  <meta name="twitter:description" content="Chapter 5 Import read depth signal | Copy Number Analysis using CNVpytor" />
   
 
 
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
-<link rel="prev" href="a-new-chapter-1.html"/>
-<link rel="next" href="about-the-authors.html"/>
+<link rel="prev" href="data-import.html"/>
+<link rel="next" href="a-new-chapter.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -263,202 +263,222 @@ div.csl-indent {
 <div class="hero-image-container">
   <img class= "hero-image" src= "https://github.com/jhudsl/OTTR_Template/raw/main/assets/dasl_thin_main_image.png">
 </div>
-<div id="topic-of-section-1" class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Topic of Section</h1>
-<p>You can write all your text in sections like this!</p>
-<div id="subtopic-1" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Subtopic</h2>
-<p>Here’s a subheading and some text in this subsection!</p>
-<div id="code-examples" class="section level3" number="9.1.1">
-<h3><span class="header-section-number">9.1.1</span> Code examples</h3>
-<p>You can demonstrate code like this:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="topic-of-section-1.html#cb43-1" aria-hidden="true" tabindex="-1"></a>output_dir <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;resources&quot;</span>, <span class="st">&quot;code_output&quot;</span>)</span>
-<span id="cb43-2"><a href="topic-of-section-1.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(output_dir)) {</span>
-<span id="cb43-3"><a href="topic-of-section-1.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dir.create</span>(output_dir)</span>
-<span id="cb43-4"><a href="topic-of-section-1.html#cb43-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>And make plots too:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="topic-of-section-1.html#cb44-1" aria-hidden="true" tabindex="-1"></a>hist_plot <span class="ot">&lt;-</span> <span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
-<p><img src="resources/images/06-chapter_of_course_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>You can also save these plots to file:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="topic-of-section-1.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="fu">file.path</span>(output_dir, <span class="st">&quot;test_plot.png&quot;</span>))</span>
-<span id="cb45-2"><a href="topic-of-section-1.html#cb45-2" aria-hidden="true" tabindex="-1"></a>hist_plot</span></code></pre></div>
-<pre><code>## $breaks
-## [1] 4.0 4.5 5.0 5.5 6.0 6.5 7.0 7.5 8.0
-## 
-## $counts
-## [1]  5 27 27 30 31 18  6  6
-## 
-## $density
-## [1] 0.06666667 0.36000000 0.36000000 0.40000000 0.41333333 0.24000000 0.08000000
-## [8] 0.08000000
-## 
-## $mids
-## [1] 4.25 4.75 5.25 5.75 6.25 6.75 7.25 7.75
-## 
-## $xname
-## [1] &quot;iris$Sepal.Length&quot;
-## 
-## $equidist
-## [1] TRUE
-## 
-## attr(,&quot;class&quot;)
-## [1] &quot;histogram&quot;</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="topic-of-section-1.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
-<pre><code>## png 
-##   2</code></pre>
-</div>
-<div id="image-example" class="section level3" number="9.1.2">
-<h3><span class="header-section-number">9.1.2</span> Image example</h3>
-<p>How to include a Google slide. It’s simplest to use the <code>ottr</code> package:</p>
-<p><img src="resources/images/06-chapter_of_course_files/figure-html/1YmwKdIy9BeQ3EShgZhvtb3MgR8P6iDX4DfFD65W_gdQ_gcc4fbee202_0_141.png" title="Major point!! example image" alt="Major point!! example image" width="480" style="display: block; margin: auto;" /></p>
-<p>But if you have the slide or some other image locally downloaded you can also use html like this:</p>
-<p><img src="resources/images/02-chapter_of_course_files/figure-html//1YmwKdIy9BeQ3EShgZhvtb3MgR8P6iDX4DfFD65W_gdQ_gcc4fbee202_0_141.png" title="Major point!! example image" alt="Major point!! example image" style="display: block; margin: auto;" /></p>
-</div>
-<div id="video-examples" class="section level3" number="9.1.3">
-<h3><span class="header-section-number">9.1.3</span> Video examples</h3>
-<p>To show videos in your course, you can use markdown syntax like this:</p>
-<p><a href="https://www.youtube.com/embed/VOCYL-FNbr0">A video we want to show</a></p>
-<p>Alternatively, you can use <code>knitr::include_url()</code> like this:
-Note that we are using <code>echo=FALSE</code> in the code chunk because we don’t want the code part of this to show up.
-If you are unfamiliar with <a href="https://rmarkdown.rstudio.com/lesson-3.html">how R Markdown code chunks work, read this</a>.</p>
-<iframe src="https://www.youtube.com/embed/VOCYL-FNbr0" width="672" height="400px">
-</iframe>
-<p>OR this works:</p>
-<iframe src="https://www.youtube.com/embed/VOCYL-FNbr0" width="672" height="400px">
-</iframe>
-</div>
-<div id="links-to-files" class="section level3" number="9.1.4">
-<h3><span class="header-section-number">9.1.4</span> Links to files</h3>
-<p>This works:</p>
-<iframe src="https://www.messiah.edu/download/downloads/id/921/Microaggressions_in_the_Classroom.pdf" width="672" height="800px">
-</iframe>
-<p>Or this:</p>
-<p><a href="https://www.messiah.edu/download/downloads/id/921/Microaggressions_in_the_Classroom.pdf">This works</a>.</p>
-<p>Or this:</p>
-<iframe src="https://www.messiah.edu/download/downloads/id/921/Microaggressions_in_the_Classroom.pdf" width="672" height="800px">
-</iframe>
-</div>
-<div id="links-to-websites" class="section level3" number="9.1.5">
-<h3><span class="header-section-number">9.1.5</span> Links to websites</h3>
-<p>Examples of including a website link.</p>
-<p>This works:</p>
-<iframe src="https://yihui.org" width="672" height="400px">
-</iframe>
-<p>OR this:</p>
-<div class="figure">
-<img src="https://yihui.org" alt="" />
-<p class="caption">Another link</p>
-</div>
-<p>OR this:</p>
-<iframe src="https://yihui.org" width="672" height="400px">
-</iframe>
-</div>
-<div id="citation-examples" class="section level3" number="9.1.6">
-<h3><span class="header-section-number">9.1.6</span> Citation examples</h3>
-<p>We can put citations at the end of a sentence like this <span class="citation">(<a href="#ref-rmarkdown2021" role="doc-biblioref">Allaire et al. 2021</a>)</span>.
-Or multiple citations <span class="citation">Xie, Allaire, and Grolemund (<a href="#ref-Xie2018" role="doc-biblioref">2018</a>)</span>.</p>
-<p>but they need a ; separator <span class="citation">(<a href="#ref-rmarkdown2021" role="doc-biblioref">Allaire et al. 2021</a>; <a href="#ref-Xie2018" role="doc-biblioref">Xie, Allaire, and Grolemund 2018</a>)</span>.</p>
-<p>In text, we can put citations like this <span class="citation">Allaire et al. (<a href="#ref-rmarkdown2021" role="doc-biblioref">2021</a>)</span>.</p>
-</div>
-<div id="fyi-boxes" class="section level3" number="9.1.7">
-<h3><span class="header-section-number">9.1.7</span> FYI boxes</h3>
-<div class="fyi">
-<p>Please click on the subsection headers in the left hand
-navigation bar (e.g., 2.1, 4.3) a second time to expand the
-table of contents and enable the <code>scroll_highlight</code> feature
-(<a href="introduction.html#scroll-highlight">see more</a>).</p>
-</div>
-</div>
-<div id="dropdown-summaries" class="section level3" number="9.1.8">
-<h3><span class="header-section-number">9.1.8</span> Dropdown summaries</h3>
-<details>
-<summary>
-You can hide additional information in a dropdown menu
-</summary>
-Here’s more words that are hidden.
-</details>
-</div>
-</div>
-<div id="print-out-session-info" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Print out session info</h2>
-<p>You should print out session info when you have code for <a href="https://jhudatascience.org/Reproducibility_in_Cancer_Informatics/managing-package-versions.html">reproducibility purposes</a>.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="topic-of-section-1.html#cb49-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────
-##  setting  value                       
-##  version  R version 4.0.2 (2020-06-22)
-##  os       Ubuntu 20.04.3 LTS          
-##  system   x86_64, linux-gnu           
-##  ui       X11                         
-##  language (EN)                        
-##  collate  en_US.UTF-8                 
-##  ctype    en_US.UTF-8                 
-##  tz       Etc/UTC                     
-##  date     2022-02-11                  
-## 
-## ─ Packages ───────────────────────────────────────────────────────────────────
-##  package     * version    date       lib source                            
-##  assertthat    0.2.1      2019-03-21 [1] RSPM (R 4.0.3)                    
-##  bookdown      0.24       2022-02-11 [1] Github (rstudio/bookdown@88bc4ea) 
-##  callr         3.4.4      2020-09-07 [1] RSPM (R 4.0.2)                    
-##  cli           2.0.2      2020-02-28 [1] RSPM (R 4.0.0)                    
-##  crayon        1.3.4      2017-09-16 [1] RSPM (R 4.0.0)                    
-##  curl          4.3        2019-12-02 [1] RSPM (R 4.0.3)                    
-##  desc          1.2.0      2018-05-01 [1] RSPM (R 4.0.3)                    
-##  devtools      2.3.2      2020-09-18 [1] RSPM (R 4.0.3)                    
-##  digest        0.6.25     2020-02-23 [1] RSPM (R 4.0.0)                    
-##  ellipsis      0.3.1      2020-05-15 [1] RSPM (R 4.0.3)                    
-##  evaluate      0.14       2019-05-28 [1] RSPM (R 4.0.3)                    
-##  fansi         0.4.1      2020-01-08 [1] RSPM (R 4.0.0)                    
-##  fs            1.5.0      2020-07-31 [1] RSPM (R 4.0.3)                    
-##  glue          1.6.1      2022-01-22 [1] CRAN (R 4.0.2)                    
-##  highr         0.8        2019-03-20 [1] RSPM (R 4.0.3)                    
-##  hms           0.5.3      2020-01-08 [1] RSPM (R 4.0.0)                    
-##  htmltools     0.5.0      2020-06-16 [1] RSPM (R 4.0.1)                    
-##  httr          1.4.2      2020-07-20 [1] RSPM (R 4.0.3)                    
-##  jquerylib     0.1.4      2021-04-26 [1] CRAN (R 4.0.2)                    
-##  knitr         1.33       2022-02-11 [1] Github (yihui/knitr@a1052d1)      
-##  lifecycle     1.0.0      2021-02-15 [1] CRAN (R 4.0.2)                    
-##  magrittr    * 2.0.2      2022-01-26 [1] CRAN (R 4.0.2)                    
-##  memoise       1.1.0      2017-04-21 [1] RSPM (R 4.0.0)                    
-##  ottr          0.1.2      2022-02-11 [1] Github (jhudsl/ottr@2d03822)      
-##  pillar        1.4.6      2020-07-10 [1] RSPM (R 4.0.2)                    
-##  pkgbuild      1.1.0      2020-07-13 [1] RSPM (R 4.0.2)                    
-##  pkgconfig     2.0.3      2019-09-22 [1] RSPM (R 4.0.3)                    
-##  pkgload       1.1.0      2020-05-29 [1] RSPM (R 4.0.3)                    
-##  png           0.1-7      2013-12-03 [1] CRAN (R 4.0.2)                    
-##  prettyunits   1.1.1      2020-01-24 [1] RSPM (R 4.0.3)                    
-##  processx      3.4.4      2020-09-03 [1] RSPM (R 4.0.2)                    
-##  ps            1.3.4      2020-08-11 [1] RSPM (R 4.0.2)                    
-##  purrr         0.3.4      2020-04-17 [1] RSPM (R 4.0.3)                    
-##  R6            2.4.1      2019-11-12 [1] RSPM (R 4.0.0)                    
-##  readr         1.4.0      2020-10-05 [1] RSPM (R 4.0.2)                    
-##  remotes       2.2.0      2020-07-21 [1] RSPM (R 4.0.3)                    
-##  rlang         0.4.10     2022-02-11 [1] Github (r-lib/rlang@f0c9be5)      
-##  rmarkdown     2.10       2022-02-11 [1] Github (rstudio/rmarkdown@02d3c25)
-##  rprojroot     2.0.2      2020-11-15 [1] CRAN (R 4.0.2)                    
-##  sessioninfo   1.1.1      2018-11-05 [1] RSPM (R 4.0.3)                    
-##  stringi       1.5.3      2020-09-09 [1] RSPM (R 4.0.3)                    
-##  stringr       1.4.0      2019-02-10 [1] RSPM (R 4.0.3)                    
-##  testthat      3.0.1      2022-02-11 [1] Github (R-lib/testthat@e99155a)   
-##  tibble        3.0.3      2020-07-10 [1] RSPM (R 4.0.2)                    
-##  usethis       2.1.5.9000 2022-02-11 [1] Github (r-lib/usethis@57b109a)    
-##  vctrs         0.3.4      2020-08-29 [1] RSPM (R 4.0.2)                    
-##  withr         2.3.0      2020-09-22 [1] RSPM (R 4.0.2)                    
-##  xfun          0.26       2022-02-11 [1] Github (yihui/xfun@74c2a66)       
-##  yaml          2.2.1      2020-02-01 [1] RSPM (R 4.0.3)                    
-## 
-## [1] /usr/local/lib/R/site-library
-## [2] /usr/local/lib/R/library</code></pre>
+<div id="import-read-depth-signal" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Import read depth signal</h1>
+<p>Make sure that you have indexed alignment (SAM, BAM or CRAM) file.
+Initialize your CNVpytor project by running:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -rd file.bam [-chrom name1 ...] [-T ref.fa.gz]</code></pre>
+<p>where:</p>
+<pre><code>* file.pytor -- specifies output CNVpytor file (HDF5 file)
+* name1 ... -- specifies chromosome name(s).
+* file.bam -- specifies bam/sam/cram file name.
+* -T ref.fa.gz -- specifies reference genome file (only for cram file without reference genome).</code></pre>
+<p>Chromosome names must be specified the same way as they are described in the sam/bam/cram header,
+e.g., chr1 or 1. One can specify multiple chromosomes separated by space. If no chromosome is specified,
+read mapping is extracted for all chromosomes in the sam/bam file.
+Note that the pytor file is not being overwritten.</p>
+<p><strong>Examples:</strong></p>
+<pre><code>&gt; cnvpytor -root NA12878.pytor -chrom 1 2 3 -rd NA12878_ali.bam</code></pre>
+<p>for bam files with a header like this:</p>
+<pre><code>@HD VN:1.4 GO:none SO:coordinate
+@SQ SN:1 LN:249250621
+@SQ SN:2 LN:243199373
+@SQ SN:3 LN:198022430</code></pre>
+<p>or</p>
+<pre><code>&gt; cnvpytor -root NA12878.pytor -chrom chr1 chr2 chr3 -rd NA12878_ali.bam</code></pre>
+<p>for bam files with a header like this:</p>
+<pre><code>@HD VN:1.4 GO:none SO:coordinate
+@SQ SN:chr1 LN:249250621
+@SQ SN:chr2 LN:243199373
+@SQ SN:chr3 LN:198022430</code></pre>
+<p>After -rd step file file.pytor is created and read depth data binned to 100 base pair bins will be stored
+in <em>pytor</em> file.</p>
+<p>Chromosome names and lengths are parsed from the input file header and used to
+detect reference genome.</p>
+<div id="check-reference-genome" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> check reference genome</h2>
+<p>To check is reference genome detected use:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -ls</code></pre>
+<p>CNVpytor will print out details about file.pytor including line that specify which reference genome is
+used and are there available GC and mask data:</p>
+<pre><code>Using reference genome: hg19 [ GC: yes, mask: yes ]</code></pre>
+<p>Command <code>-ls</code> is useful if you want to check content of <em>pytor</em> file but also date and version of CNVpytor
+that created it.
+## Predicting CNV regions</p>
+<p>First we have to chose bin size. By CNVpytor design it have to be divisible by 100.
+Here we will use 10 kbp and 100 kbp bins.</p>
+<p>To calculate read depth histograms, GC correction and statistics type:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -his 10000 100000</code></pre>
+<p>Next step is partitioning using mean-shift method:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -partition 10000 100000</code></pre>
+<p>Finally we can call CNV regions using commands:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -call 10000 &gt; calls.10000.tsv
+&gt; cnvpytor -root file.pytor -call 100000 &gt; calls.100000.tsv</code></pre>
+<p>Result is stored in tab separated files with following columns:</p>
+<pre><code>* CNV type: &quot;deletion&quot; or &quot;duplication&quot;,
+* CNV region (chr:start-end),
+* CNV size,
+* CNV level - read depth normalized to 1,
+* e-val1 -- e-value (p-value multiplied by genome size divided by bin size) calculated using t-test statistics between RD statistics in the region and global,
+* e-val2 -- e-value (p-value multiplied by genome size divided by bin size) from the probability of RD values within the region to be in the tails of a gaussian distribution of binned RD,
+* e-val3 -- same as e-val1 but for the middle of CNV,
+* e-val4 -- same as e-val2 but for the middle of CNV,
+* q0 -- fraction of reads mapped with q0 quality in call region,
+* pN -- fraction of reference genome gaps (Ns) in call region,
+* dG -- distance from closest large (&gt;100bp) gap in reference genome.</code></pre>
+<p>Using viewer mode we can filter calls based on five parameters:</p>
+<pre><code>CNV size, e-val1, q0, pN and dG:</code></pre>
+<pre><code>&gt; cnvpytor -root file.pytor [file2.pytor ...] -view 10000
 
+cnvpytor&gt; set Q0_range -1 0.5        # filter calls with more than half not uniquely mapped reads
+cnvpytor&gt; set p_range 0 0.0001       # filter non-confident calls 
+cnvpytor&gt; set p_N 0 0.5              # filter calls with more than 50% Ns in reference genome 
+cnvpytor&gt; set size_range 50000 inf   # filter calls smaller than 50kbp 
+cnvpytor&gt; set dG_range 100000 inf    # filter calls close to gaps in reference genome (&lt;100kbp)
+cnvpytor&gt; print calls                # printing calls on screen (tsv format)
+...
+...
+cnvpytor&gt; set print_filename file.xlsx   # output filename (xlsx, tsv or vcf)
+cnvpytor&gt; set annotate               # turn on annotation (optional - takes a lot of time)
+cnvpytor&gt; print calls                # generate output file with filtered calls 
+cnvpytor&gt; quit</code></pre>
+<p>Upper bound for parameters <code>size_range</code> and <code>dG_range</code> can be <em>inf</em> (infinity).</p>
+<p>If there are multiple samples (pytor files) there will be an additional
+column with sample name in tsv format, multiple sheets in Excel format, and
+multiple sample columns in vcf format.</p>
+</div>
+<div id="import-snp-data" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Import SNP data</h2>
+<div id="from-variant-file" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> From variant file</h3>
+<p>To import variant data from VCF file use following command:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -snp file.vcf.gz [-sample sample_name] [-chrom name1 ...] [-ad AD_TAG] [-gt GT_TAG] [-noAD]</code></pre>
+<p>where:</p>
+<pre><code>* file.pytor -- specifies cnvpytor file,
+* file.vcf -- specifies variant file name.
+* sample_name -- specifies VCF sample name,
+* name1 ... -- specifies chromosome name(s),
+* -ad AD_TAG -- specifies AD tag used in vcf file (default AD)
+* -gt GT_TAG -- specifies GT tag used in vcf file (default GT)
+* -noAD -- ref and alt read counts will not be readed (see next section)</code></pre>
+<p>Chromosome names must be specified the same way as they are described in the vcf header,
+e.g., chr1 or 1. One can specify multiple chromosomes separated by space. If no chromosome is specified,
+all chromosomes from the vcf file will be parsed.</p>
+<p>If chromosome names in variant and alignment file are different in prefix chr (e.g. in “1” and “chr1”)
+CNVpytor will detect it and match the names using first imported name for both signals.</p>
+</div>
+<div id="using-snp-positions-from-variant-file-and-counts-from-alignment-file" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Using SNP positions from variant file and counts from alignment file</h3>
+<p>In some cases it is useful to read positions of SNPs from vcf file and
+extract read counts from bam file. For example if we have two samples, normal tissue and
+cancer, normal can be used to call germline SNPs, while <code>samtools mpileup</code> procedure can be used
+to calculate read counts in cancer sample at the positions of SNPs. CNVpytor have
+implemented this procedure. After reading SNP positions (previous step) type:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -pileup file.bam [-T ref.fa.gz]</code></pre>
+<p>where</p>
+<pre><code>* file.pytor -- specifies cnvpytor file,
+* file.bam -- specifies bam/sam/cram file,
+* -T ref.fa.gz -- specifies reference genome file (only for cram file without reference genome).</code></pre>
+</div>
+<div id="calculating-baf-histograms" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Calculating BAF histograms</h3>
+<p>To apply 1000 genomes strict mask filter:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -mask_snps</code></pre>
+<p>To calculate baf histograms for maf, baf and likelihood function for baf use:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -baf 10000 100000 [-nomask]</code></pre>
+</div>
+<div id="predicting-cnv-regions-using-joint-caller-prototype" class="section level3" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Predicting CNV regions using joint caller (prototype)</h3>
+<p>Finally we can call CNV regions using commands:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -call combined 10000 &gt; calls.combined.10000.tsv
+&gt; cnvpytor -root file.pytor -call combined 100000 &gt; calls.combined.100000.tsv</code></pre>
+<p>Result is stored in tab separated files with following columns:</p>
+<pre><code>* CNV type: &quot;deletion&quot;, &quot;duplication&quot;, or ”cnnloh&quot;, 
+* CNV region (chr:start-end),
+* CNV size,
+* CNV level - read depth normalized to 1,
+* e-val1 -- e-value (p-value multiplied by genome size divided by bin size) calculated using t-test statistics between RD statistics in the region and global,
+* e-val2 -- e-value (p-value multiplied by genome size divided by bin size) from the probability of RD values within the region to be in the tails of a gaussian distribution of binned RD,
+* e-val3 -- same as e-val1 but for the middle of CNV,
+* e-val4 -- same as e-val2 but for the middle of CNV,
+* q0 -- fraction of reads mapped with q0 quality in call segments,
+* pN -- fraction of reference genome gaps (Ns) within call region,
+* dNS -- fraction of reference genome gaps (Ns) within call segments,
+* pP -- fraction of P bases (1kGP strict mask) within call segments,
+* bin_size – size of bins
+* n – number of bins within call segments,
+* delta_BAF – change in BAF from ½,
+* e-val1 -- e-value RD based (repeted, reserved for future upgrades),
+* baf_eval – e-value BAF based,
+* hets – number of HETs,
+* homs – number of HOMs,
+* cn_1 – most likely model copy number,
+* genotype_1 - most likely model genotype,
+* likelihood_1 – most likely model likelihood,
+* cf_1 -- most likely model cell fraction,
+* cn_2 – the second most likely model copy number,
+* genotype_2 - the second most likely model genotype,
+* likelihood_2 – the second most likely model likelihood,
+* cf_2 -- the second most likely model cell fraction.</code></pre>
+<p>Using viewer mode we can filter calls based on five parameters:</p>
+<pre><code>CNV size, e-val1, q0, pN and dG:</code></pre>
+<pre><code>&gt; cnvpytor -root file.pytor [file2.pytor ...] -view 10000
+cnvpytor&gt; set caller combined_mosaic # IMPORTANT, default caller is mean shift
+cnvpytor&gt; set Q0_range -1 0.5        # filter calls with more than half not uniquely mapped reads
+cnvpytor&gt; set p_range 0 0.0001       # filter non-confident calls 
+cnvpytor&gt; set p_N 0 0.5              # filter calls with more than 50% Ns in reference genome 
+cnvpytor&gt; set size_range 50000 inf   # filter calls smaller than 50kbp 
+cnvpytor&gt; set dG_range 100000 inf    # filter calls close to gaps in reference genome (&lt;100kbp)
+cnvpytor&gt; print calls                # printing calls on screen (tsv format)
+...
+...
+cnvpytor&gt; set print_filename file.xlsx   # output filename (xlsx, tsv or vcf)
+cnvpytor&gt; set annotate               # turn on annotation (optional - takes a lot of time)
+cnvpytor&gt; print calls                # generate output file with filtered calls 
+cnvpytor&gt; quit</code></pre>
+<p>Upper bound for parameters <code>size_range</code> and <code>dG_range</code> can be <em>inf</em> (infinity).</p>
+<p>If there are multiple samples (pytor files) there will be an additional
+column with sample name in tsv format, multiple sheets in Excel format, and
+multiple sample columns in vcf format.</p>
+<p>Comparison between <code>CNVnator</code> and <code>CNVpytor</code> callers output format:</p>
+<p><img src="https://raw.githubusercontent.com/abyzovlab/CNVpytor/master/imgs/joint_caller_output.png"></p>
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-rmarkdown2021" class="csl-entry">
-Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2021. <em>Rmarkdown: Dynamic Documents for r</em>. <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.
-</div>
-<div id="ref-Xie2018" class="csl-entry">
-Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown">https://bookdown.org/yihui/rmarkdown</a>.
+<div id="genotyping-genomic-regions" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Genotyping genomic regions</h2>
+<p>Using -genotype option followed by bin_sizes you can enter region and genotype calculation
+for each bin size will be performed:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -genotype 10000 100000
+12:11396601-11436500
+12:11396601-11436500    1.933261    1.937531
+22:20999401-21300400
+22:20999401-21300400    1.949186    1.957068</code></pre>
+<p>Genotyping with additional information:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -genotype 10000 -a [-rd_use_mask] [-nomask]
+12:11396601-11436500
+12:11396601-11436500    2.0152  1.629621e+04    9.670589e+08    0.0000  0.0000  4156900 1.0000  50      4       0.0000  1.000000e+00</code></pre>
+<p>Output columns are:</p>
+<pre><code>1. region,
+1. cnv level -- mean RD normalized to mean autosomal RD level,
+1. e_val_1 -- p value calculated using t-test statistics between RD statistics in the region and global,
+1. e_val_2 -- p value from the probability of RD values within the region to be in the tails of a gaussian distribution of binned RD,
+1. q0 – fraction of reads mapped with q0 quality within call region,
+1. pN – fraction of reference genome gaps (Ns) within call region,
+1. dG -- distance from closest large (&gt;100bp) gap in reference genome,
+1. proportion of bins used in RD calculation (with option _-rd_use_mask_ some bins can be filtered out),
+1. Number of homozygous variants within region,
+1. Number of heterozygous variants,
+1. BAF level (difference from 0.5) for HETs estimated using maximum likelihood method,
+1. p-value based on BAF signal.
+
+
+Option _-rd_use_mask_ turns on P filtering (1000 Genome Project strict mask) for RD signal.
+
+Option _-nomak_ turns off P filtering of SNPs (1000 Genome Project strict mask) for BAF signal.</code></pre>
+<p><strong>Example:</strong></p>
+<p>Genotype all called CNVs:</p>
+<pre><code>&gt; awk &#39;{ print $2 }&#39; calls.10000.tsv | cnvpytor -root file.pytor -genotype 10000 100000</code></pre>
+
 </div>
 </div>
 <hr>
@@ -474,8 +494,8 @@ Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Defi
           </div>
         </div>
       </div>
-<a href="a-new-chapter-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-import.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="a-new-chapter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
