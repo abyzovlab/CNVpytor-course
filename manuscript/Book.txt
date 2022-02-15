@@ -3,9 +3,8 @@ quiz_ch1.md
 2-Installation-and-Setting-Reference-genome.md
 3-Calling-CNV-from-Alignment-file-using-terminal.md
 4-Data-import.md
-5-Import-read-depth-signal.md
-6-Visualization.md
-7-Visualize-CNVpytor-data-inside-JBrowse.md
+5-Visualization.md
+6-Visualize-CNVpytor-data-inside-JBrowse.md
 About-this-Course.md
 About-the-Authors.md
 References.md
