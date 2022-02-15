@@ -5,14 +5,19 @@ ottr::set_knitr_image_path()
 
 # Introduction
 CNVpytor is a Python package and command line tool for copy number variation (CNV)/Copy Number alteration (CNA) analysis from depth-of-coverage by mapped reads developed in Abyzov Lab, Mayo Clinic.
+The package is available at https://github.com/abyzovlab/CNVpytor. 
 
 ## Motivation
+This course will help one to learn more about copy number analysis. CNVnator is one of most popular tool for copy number analysis mostly based on CERN root developed in 2011.
+We have rewritten the method in python and added multiple analysis and visualization features. This course will guide one to use CNVpytor for their CNV analysis. 
 
-
-## Target Audience 
-
-The course is intended for ...
 
 ## Curriculum  
 
-The course covers...
+The course covers the following topics
+
+- Installation
+- Setting reference genome
+- Data import and analysis steps
+- Visualization features
+- A working example
