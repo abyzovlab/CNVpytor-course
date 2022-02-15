@@ -9,7 +9,7 @@
 - Import read depth signal
 - Import variant information
 
-# Import read depth signal
+## Import read depth signal
 
 Make sure that you have indexed alignment (SAM, BAM or CRAM) file.
 Initialize your CNVpytor project by running:
@@ -61,7 +61,7 @@ in _pytor_ file.
 Chromosome names and lengths are parsed from the input file header and used to 
 detect reference genome.
 
-## check reference genome
+### check reference genome
 To check is reference genome detected use:
 
 ```
@@ -77,7 +77,7 @@ Using reference genome: hg19 [ GC: yes, mask: yes ]
 Command `-ls` is useful if you want to check content of _pytor_ file but also date and version of CNVpytor 
 that created it.
 
-## Predicting CNV regions
+### Predicting CNV regions
 
 First we have to chose bin size. By CNVpytor design it have to be divisible by 100. 
 Here we will use 10 kbp and 100 kbp bins.

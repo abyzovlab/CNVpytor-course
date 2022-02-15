@@ -1,6 +1,5 @@
 introduction
 motivation
-target-audience
 curriculum
 installation-and-setting-reference-genome
 learning-objectives
