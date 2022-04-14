@@ -91,7 +91,7 @@ cnvpytor -conf REL_PATH/example_ref_genome_conf.py -root file.pytor -rg mm9
 
 To avoid typing `-conf REL_PATH/example_ref_genome_conf.py` each time you run `cnvpytor`, you can create an bash alias or make configuration permanent by copying `example_ref_genome_conf.py` to `~/.cnvpytor/reference_genomes_conf.py`.
 
-### Create GC and mask file for new reference genome
+#### Create GC and mask file for new reference genome
 
 CNVpytor also has optional features for GC correction and masking (i.e., commonly known false positive regions). One can setup their reference genome by adding its related content in the `gc_file` and `mask_file` field of the configuration file.  
 

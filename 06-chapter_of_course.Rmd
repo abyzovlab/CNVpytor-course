@@ -2,7 +2,7 @@
 # Visualize CNVpytor data inside JBrowse
 
 ```{r, include = FALSE}
-ottrpal::set_knitr_image_path()
+ottr::set_knitr_image_path()
 ```
 
 ## Learning Objectives

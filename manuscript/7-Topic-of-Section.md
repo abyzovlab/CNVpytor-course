@@ -1,7 +1,7 @@
 # 7 Topic of Section
  
-{type: iframe, title:7 Topic of Section, width:800, height:600, poster:resources/chapt_screen_images/topic-of-section.png}
-![](https://abyzovlab.github.io/CNVpytor-course//coursera/topic-of-section.html)
+{type: iframe, title:7 Topic of Section, width:800, height:600, poster:resources/chapt_screen_images/topic-of-section-1.png}
+![](https://abyzovlab.github.io/CNVpytor-course//coursera/topic-of-section-1.html)
  
 
  
