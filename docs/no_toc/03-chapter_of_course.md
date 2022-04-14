@@ -1,0 +1,41 @@
+
+# Calling CNV from Alignment file using terminal
+
+This section will guide to use CNVpytor for calling CNV using Read depth file and incorporating variant information
+
+
+
+## Learning Objectives
+
+This chapter will cover:  
+
+- Steps to process alignment file
+- Steps to process variant information.
+
+
+## Calling CNV from Alignment file
+
+The following steps can be used to process read depth information from alignment file
+
+```
+> cnvpytor -root file.pytor -rd file.bam
+```
+If the reference genome is human than there is no need to set the reference genome and one can run the following steps.
+
+```
+> cnvpytor -root file.pytor -his 1000 10000 100000
+> cnvpytor -root file.pytor -partition 1000 10000 100000
+> cnvpytor -root file.pytor -call 1000 10000 100000
+```
+For non human reference genome, please have a look at the section for setting reference genome. 
+
+## Importing and using variant information:
+
+
+```
+> cnvpytor -root file.pytor -snp file.vcf -sample sample_name
+> cnvpytor -root file.pytor -pileup file.bam                   # OPTIONAL
+> cnvpytor -root file.pytor -mask_snps                         # OPTIONAL 
+> cnvpytor -root file.pytor -baf 10000 100000
+```
+
