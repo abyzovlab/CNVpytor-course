@@ -7,7 +7,7 @@ bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 description: "Copy Number Analysis using CNVpytor"
-favicon: assets/dasl_favicon.ico
+favicon: assets/cnvpytor_w_640.png
 output:
     bookdown::word_document2:
       toc: true
