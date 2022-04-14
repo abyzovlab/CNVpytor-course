@@ -2,7 +2,7 @@
 # Visualization
 
 ```{r, include = FALSE}
-ottrpal::set_knitr_image_path()
+ottr::set_knitr_image_path()
 ```
 
 ## Learning Objectives
