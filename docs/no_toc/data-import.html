@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Data import | Copy Number Analysis using CNVpytor</title>
+  <meta name="description" content="Chapter 4 Data import | Copy Number Analysis using CNVpytor" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Data import | Copy Number Analysis using CNVpytor" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 4 Data import | Copy Number Analysis using CNVpytor" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Data import | Copy Number Analysis using CNVpytor" />
+  
+  <meta name="twitter:description" content="Chapter 4 Data import | Copy Number Analysis using CNVpytor" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="calling-cnv-from-alignment-file-using-terminal.html"/>
+<link rel="next" href="visualization.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="http://jhudatascience.org/"><img src="https://jhudatascience.org/images/dasl.png" style=" width: 80%; padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Course</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#curriculum"><i class="fa fa-check"></i><b>1.2</b> Curriculum</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installation-and-setting-reference-genome.html"><a href="installation-and-setting-reference-genome.html"><i class="fa fa-check"></i><b>2</b> Installation and Setting Reference genome</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="installation-and-setting-reference-genome.html"><a href="installation-and-setting-reference-genome.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="installation-and-setting-reference-genome.html"><a href="installation-and-setting-reference-genome.html#libraries"><i class="fa fa-check"></i><b>2.2</b> Libraries</a></li>
+<li class="chapter" data-level="2.3" data-path="installation-and-setting-reference-genome.html"><a href="installation-and-setting-reference-genome.html#installation"><i class="fa fa-check"></i><b>2.3</b> Installation</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="installation-and-setting-reference-genome.html"><a href="installation-and-setting-reference-genome.html#install-by-cloning-from-github"><i class="fa fa-check"></i><b>2.3.1</b> Install by cloning from GitHub</a></li>
+<li class="chapter" data-level="2.3.2" data-path="installation-and-setting-reference-genome.html"><a href="installation-and-setting-reference-genome.html#install-using-pip"><i class="fa fa-check"></i><b>2.3.2</b> Install using pip</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="installation-and-setting-reference-genome.html"><a href="installation-and-setting-reference-genome.html#steps-for-setting-reference-genome"><i class="fa fa-check"></i><b>2.4</b> Steps for setting reference genome</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="installation-and-setting-reference-genome.html"><a href="installation-and-setting-reference-genome.html#create-gc-and-mask-file-for-new-reference-genome"><i class="fa fa-check"></i><b>2.4.1</b> Create GC and mask file for new reference genome</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="calling-cnv-from-alignment-file-using-terminal.html"><a href="calling-cnv-from-alignment-file-using-terminal.html"><i class="fa fa-check"></i><b>3</b> Calling CNV from Alignment file using terminal</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="calling-cnv-from-alignment-file-using-terminal.html"><a href="calling-cnv-from-alignment-file-using-terminal.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="calling-cnv-from-alignment-file-using-terminal.html"><a href="calling-cnv-from-alignment-file-using-terminal.html#calling-cnv-from-alignment-file"><i class="fa fa-check"></i><b>3.2</b> Calling CNV from Alignment file</a></li>
+<li class="chapter" data-level="3.3" data-path="calling-cnv-from-alignment-file-using-terminal.html"><a href="calling-cnv-from-alignment-file-using-terminal.html#importing-and-using-variant-information"><i class="fa fa-check"></i><b>3.3</b> Importing and using variant information:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>4</b> Data import</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-import.html"><a href="data-import.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="data-import.html"><a href="data-import.html#import-read-depth-signal"><i class="fa fa-check"></i><b>4.2</b> Import read depth signal</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-import.html"><a href="data-import.html#check-reference-genome"><i class="fa fa-check"></i><b>4.2.1</b> check reference genome</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-import.html"><a href="data-import.html#predicting-cnv-regions"><i class="fa fa-check"></i><b>4.2.2</b> Predicting CNV regions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-import.html"><a href="data-import.html#import-snp-data"><i class="fa fa-check"></i><b>4.3</b> Import SNP data</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-import.html"><a href="data-import.html#from-variant-file"><i class="fa fa-check"></i><b>4.3.1</b> From variant file</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-import.html"><a href="data-import.html#using-snp-positions-from-variant-file-and-counts-from-alignment-file"><i class="fa fa-check"></i><b>4.3.2</b> Using SNP positions from variant file and counts from alignment file</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-import.html"><a href="data-import.html#calculating-baf-histograms"><i class="fa fa-check"></i><b>4.3.3</b> Calculating BAF histograms</a></li>
+<li class="chapter" data-level="4.3.4" data-path="data-import.html"><a href="data-import.html#predicting-cnv-regions-using-joint-caller-prototype"><i class="fa fa-check"></i><b>4.3.4</b> Predicting CNV regions using joint caller (prototype)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-import.html"><a href="data-import.html#genotyping-genomic-regions"><i class="fa fa-check"></i><b>4.4</b> Genotyping genomic regions</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="visualization.html"><a href="visualization.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="visualization.html"><a href="visualization.html#plot-from-command-line"><i class="fa fa-check"></i><b>5.1.1</b> Plot from command line</a></li>
+<li class="chapter" data-level="5.1.2" data-path="visualization.html"><a href="visualization.html#plot-from-interactive-mode"><i class="fa fa-check"></i><b>5.1.2</b> Plot from interactive mode</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualize-cnvpytor-data-inside-jbrowse.html"><a href="visualize-cnvpytor-data-inside-jbrowse.html"><i class="fa fa-check"></i><b>6</b> Visualize CNVpytor data inside JBrowse</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="visualize-cnvpytor-data-inside-jbrowse.html"><a href="visualize-cnvpytor-data-inside-jbrowse.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="visualize-cnvpytor-data-inside-jbrowse.html"><a href="visualize-cnvpytor-data-inside-jbrowse.html#libraries-1"><i class="fa fa-check"></i><b>6.2</b> Libraries</a></li>
+<li class="chapter" data-level="6.3" data-path="visualize-cnvpytor-data-inside-jbrowse.html"><a href="visualize-cnvpytor-data-inside-jbrowse.html#steps-to-process-cnvpytor-data-for-jbrowse-integration"><i class="fa fa-check"></i><b>6.3</b> Steps to process CNVpytor data for JBrowse integration</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by:</a> </p>
+<p style="text-align:center;"> <a href="http://jhudatascience.org/"> The Johns Hopkins Data Science Lab </a></p>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Copy Number Analysis using CNVpytor</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src= "https://github.com/jhudsl/OTTR_Template/raw/main/assets/dasl_thin_main_image.png">
+</div>
+<div id="data-import" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Data import</h1>
+<div id="learning-objectives-2" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Learning Objectives</h2>
+<ul>
+<li>Import read depth signal</li>
+<li>Import variant information</li>
+</ul>
+</div>
+<div id="import-read-depth-signal" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Import read depth signal</h2>
+<p>Make sure that you have indexed alignment (SAM, BAM or CRAM) file.
+Initialize your CNVpytor project by running:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -rd file.bam [-chrom name1 ...] [-T ref.fa.gz]</code></pre>
+<p>where:</p>
+<pre><code>* file.pytor -- specifies output CNVpytor file (HDF5 file)
+* name1 ... -- specifies chromosome name(s).
+* file.bam -- specifies bam/sam/cram file name.
+* -T ref.fa.gz -- specifies reference genome file (only for cram file without reference genome).</code></pre>
+<p>Chromosome names must be specified the same way as they are described in the sam/bam/cram header,
+e.g., chr1 or 1. One can specify multiple chromosomes separated by space. If no chromosome is specified,
+read mapping is extracted for all chromosomes in the sam/bam file.
+Note that the pytor file is not being overwritten.</p>
+<p><strong>Examples:</strong></p>
+<pre><code>&gt; cnvpytor -root NA12878.pytor -chrom 1 2 3 -rd NA12878_ali.bam</code></pre>
+<p>for bam files with a header like this:</p>
+<pre><code>@HD VN:1.4 GO:none SO:coordinate
+@SQ SN:1 LN:249250621
+@SQ SN:2 LN:243199373
+@SQ SN:3 LN:198022430</code></pre>
+<p>or</p>
+<pre><code>&gt; cnvpytor -root NA12878.pytor -chrom chr1 chr2 chr3 -rd NA12878_ali.bam</code></pre>
+<p>for bam files with a header like this:</p>
+<pre><code>@HD VN:1.4 GO:none SO:coordinate
+@SQ SN:chr1 LN:249250621
+@SQ SN:chr2 LN:243199373
+@SQ SN:chr3 LN:198022430</code></pre>
+<p>After -rd step file file.pytor is created and read depth data binned to 100 base pair bins will be stored
+in <em>pytor</em> file.</p>
+<p>Chromosome names and lengths are parsed from the input file header and used to
+detect reference genome.</p>
+<div id="check-reference-genome" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> check reference genome</h3>
+<p>To check is reference genome detected use:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -ls</code></pre>
+<p>CNVpytor will print out details about file.pytor including line that specify which reference genome is
+used and are there available GC and mask data:</p>
+<pre><code>Using reference genome: hg19 [ GC: yes, mask: yes ]</code></pre>
+<p>Command <code>-ls</code> is useful if you want to check content of <em>pytor</em> file but also date and version of CNVpytor
+that created it.</p>
+</div>
+<div id="predicting-cnv-regions" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Predicting CNV regions</h3>
+<p>First we have to chose bin size. By CNVpytor design it have to be divisible by 100.
+Here we will use 10 kbp and 100 kbp bins.</p>
+<p>To calculate read depth histograms, GC correction and statistics type:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -his 10000 100000</code></pre>
+<p>Next step is partitioning using mean-shift method:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -partition 10000 100000</code></pre>
+<p>Finally we can call CNV regions using commands:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -call 10000 &gt; calls.10000.tsv
+&gt; cnvpytor -root file.pytor -call 100000 &gt; calls.100000.tsv</code></pre>
+<p>Result is stored in tab separated files with following columns:</p>
+<pre><code>* CNV type: &quot;deletion&quot; or &quot;duplication&quot;,
+* CNV region (chr:start-end),
+* CNV size,
+* CNV level - read depth normalized to 1,
+* e-val1 -- e-value (p-value multiplied by genome size divided by bin size) calculated using t-test statistics between RD statistics in the region and global,
+* e-val2 -- e-value (p-value multiplied by genome size divided by bin size) from the probability of RD values within the region to be in the tails of a gaussian distribution of binned RD,
+* e-val3 -- same as e-val1 but for the middle of CNV,
+* e-val4 -- same as e-val2 but for the middle of CNV,
+* q0 -- fraction of reads mapped with q0 quality in call region,
+* pN -- fraction of reference genome gaps (Ns) in call region,
+* dG -- distance from closest large (&gt;100bp) gap in reference genome.</code></pre>
+<p>Using viewer mode we can filter calls based on five parameters:</p>
+<pre><code>CNV size, e-val1, q0, pN and dG:</code></pre>
+<pre><code>&gt; cnvpytor -root file.pytor [file2.pytor ...] -view 10000
+
+cnvpytor&gt; set Q0_range -1 0.5        # filter calls with more than half not uniquely mapped reads
+cnvpytor&gt; set p_range 0 0.0001       # filter non-confident calls 
+cnvpytor&gt; set p_N 0 0.5              # filter calls with more than 50% Ns in reference genome 
+cnvpytor&gt; set size_range 50000 inf   # filter calls smaller than 50kbp 
+cnvpytor&gt; set dG_range 100000 inf    # filter calls close to gaps in reference genome (&lt;100kbp)
+cnvpytor&gt; print calls                # printing calls on screen (tsv format)
+...
+...
+cnvpytor&gt; set print_filename file.xlsx   # output filename (xlsx, tsv or vcf)
+cnvpytor&gt; set annotate               # turn on annotation (optional - takes a lot of time)
+cnvpytor&gt; print calls                # generate output file with filtered calls 
+cnvpytor&gt; quit</code></pre>
+<p>Upper bound for parameters <code>size_range</code> and <code>dG_range</code> can be <em>inf</em> (infinity).</p>
+<p>If there are multiple samples (pytor files) there will be an additional
+column with sample name in tsv format, multiple sheets in Excel format, and
+multiple sample columns in vcf format.</p>
+</div>
+</div>
+<div id="import-snp-data" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Import SNP data</h2>
+<div id="from-variant-file" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> From variant file</h3>
+<p>To import variant data from VCF file use following command:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -snp file.vcf.gz [-sample sample_name] [-chrom name1 ...] [-ad AD_TAG] [-gt GT_TAG] [-noAD]</code></pre>
+<p>where:</p>
+<pre><code>* file.pytor -- specifies cnvpytor file,
+* file.vcf -- specifies variant file name.
+* sample_name -- specifies VCF sample name,
+* name1 ... -- specifies chromosome name(s),
+* -ad AD_TAG -- specifies AD tag used in vcf file (default AD)
+* -gt GT_TAG -- specifies GT tag used in vcf file (default GT)
+* -noAD -- ref and alt read counts will not be readed (see next section)</code></pre>
+<p>Chromosome names must be specified the same way as they are described in the vcf header,
+e.g., chr1 or 1. One can specify multiple chromosomes separated by space. If no chromosome is specified,
+all chromosomes from the vcf file will be parsed.</p>
+<p>If chromosome names in variant and alignment file are different in prefix chr (e.g. in “1” and “chr1”)
+CNVpytor will detect it and match the names using first imported name for both signals.</p>
+</div>
+<div id="using-snp-positions-from-variant-file-and-counts-from-alignment-file" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Using SNP positions from variant file and counts from alignment file</h3>
+<p>In some cases it is useful to read positions of SNPs from vcf file and
+extract read counts from bam file. For example if we have two samples, normal tissue and
+cancer, normal can be used to call germline SNPs, while <code>samtools mpileup</code> procedure can be used
+to calculate read counts in cancer sample at the positions of SNPs. CNVpytor have
+implemented this procedure. After reading SNP positions (previous step) type:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -pileup file.bam [-T ref.fa.gz]</code></pre>
+<p>where</p>
+<pre><code>* file.pytor -- specifies cnvpytor file,
+* file.bam -- specifies bam/sam/cram file,
+* -T ref.fa.gz -- specifies reference genome file (only for cram file without reference genome).</code></pre>
+</div>
+<div id="calculating-baf-histograms" class="section level3" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Calculating BAF histograms</h3>
+<p>To apply 1000 genomes strict mask filter:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -mask_snps</code></pre>
+<p>To calculate baf histograms for maf, baf and likelihood function for baf use:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -baf 10000 100000 [-nomask]</code></pre>
+</div>
+<div id="predicting-cnv-regions-using-joint-caller-prototype" class="section level3" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Predicting CNV regions using joint caller (prototype)</h3>
+<p>Finally we can call CNV regions using commands:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -call combined 10000 &gt; calls.combined.10000.tsv
+&gt; cnvpytor -root file.pytor -call combined 100000 &gt; calls.combined.100000.tsv</code></pre>
+<p>Result is stored in tab separated files with following columns:</p>
+<pre><code>* CNV type: &quot;deletion&quot;, &quot;duplication&quot;, or ”cnnloh&quot;, 
+* CNV region (chr:start-end),
+* CNV size,
+* CNV level - read depth normalized to 1,
+* e-val1 -- e-value (p-value multiplied by genome size divided by bin size) calculated using t-test statistics between RD statistics in the region and global,
+* e-val2 -- e-value (p-value multiplied by genome size divided by bin size) from the probability of RD values within the region to be in the tails of a gaussian distribution of binned RD,
+* e-val3 -- same as e-val1 but for the middle of CNV,
+* e-val4 -- same as e-val2 but for the middle of CNV,
+* q0 -- fraction of reads mapped with q0 quality in call segments,
+* pN -- fraction of reference genome gaps (Ns) within call region,
+* dNS -- fraction of reference genome gaps (Ns) within call segments,
+* pP -- fraction of P bases (1kGP strict mask) within call segments,
+* bin_size – size of bins
+* n – number of bins within call segments,
+* delta_BAF – change in BAF from ½,
+* e-val1 -- e-value RD based (repeted, reserved for future upgrades),
+* baf_eval – e-value BAF based,
+* hets – number of HETs,
+* homs – number of HOMs,
+* cn_1 – most likely model copy number,
+* genotype_1 - most likely model genotype,
+* likelihood_1 – most likely model likelihood,
+* cf_1 -- most likely model cell fraction,
+* cn_2 – the second most likely model copy number,
+* genotype_2 - the second most likely model genotype,
+* likelihood_2 – the second most likely model likelihood,
+* cf_2 -- the second most likely model cell fraction.</code></pre>
+<p>Using viewer mode we can filter calls based on five parameters:</p>
+<pre><code>CNV size, e-val1, q0, pN and dG:</code></pre>
+<pre><code>&gt; cnvpytor -root file.pytor [file2.pytor ...] -view 10000
+cnvpytor&gt; set caller combined_mosaic # IMPORTANT, default caller is mean shift
+cnvpytor&gt; set Q0_range -1 0.5        # filter calls with more than half not uniquely mapped reads
+cnvpytor&gt; set p_range 0 0.0001       # filter non-confident calls 
+cnvpytor&gt; set p_N 0 0.5              # filter calls with more than 50% Ns in reference genome 
+cnvpytor&gt; set size_range 50000 inf   # filter calls smaller than 50kbp 
+cnvpytor&gt; set dG_range 100000 inf    # filter calls close to gaps in reference genome (&lt;100kbp)
+cnvpytor&gt; print calls                # printing calls on screen (tsv format)
+...
+...
+cnvpytor&gt; set print_filename file.xlsx   # output filename (xlsx, tsv or vcf)
+cnvpytor&gt; set annotate               # turn on annotation (optional - takes a lot of time)
+cnvpytor&gt; print calls                # generate output file with filtered calls 
+cnvpytor&gt; quit</code></pre>
+<p>Upper bound for parameters <code>size_range</code> and <code>dG_range</code> can be <em>inf</em> (infinity).</p>
+<p>If there are multiple samples (pytor files) there will be an additional
+column with sample name in tsv format, multiple sheets in Excel format, and
+multiple sample columns in vcf format.</p>
+<p>Comparison between <code>CNVnator</code> and <code>CNVpytor</code> callers output format:</p>
+<p><img src="https://raw.githubusercontent.com/abyzovlab/CNVpytor/master/imgs/joint_caller_output.png"></p>
+</div>
+</div>
+<div id="genotyping-genomic-regions" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Genotyping genomic regions</h2>
+<p>Using -genotype option followed by bin_sizes you can enter region and genotype calculation
+for each bin size will be performed:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -genotype 10000 100000
+12:11396601-11436500
+12:11396601-11436500    1.933261    1.937531
+22:20999401-21300400
+22:20999401-21300400    1.949186    1.957068</code></pre>
+<p>Genotyping with additional information:</p>
+<pre><code>&gt; cnvpytor -root file.pytor -genotype 10000 -a [-rd_use_mask] [-nomask]
+12:11396601-11436500
+12:11396601-11436500    2.0152  1.629621e+04    9.670589e+08    0.0000  0.0000  4156900 1.0000  50      4       0.0000  1.000000e+00</code></pre>
+<p>Output columns are:</p>
+<pre><code>1. region,
+1. cnv level -- mean RD normalized to mean autosomal RD level,
+1. e_val_1 -- p value calculated using t-test statistics between RD statistics in the region and global,
+1. e_val_2 -- p value from the probability of RD values within the region to be in the tails of a gaussian distribution of binned RD,
+1. q0 – fraction of reads mapped with q0 quality within call region,
+1. pN – fraction of reference genome gaps (Ns) within call region,
+1. dG -- distance from closest large (&gt;100bp) gap in reference genome,
+1. proportion of bins used in RD calculation (with option _-rd_use_mask_ some bins can be filtered out),
+1. Number of homozygous variants within region,
+1. Number of heterozygous variants,
+1. BAF level (difference from 0.5) for HETs estimated using maximum likelihood method,
+1. p-value based on BAF signal.
+
+
+Option _-rd_use_mask_ turns on P filtering (1000 Genome Project strict mask) for RD signal.
+
+Option _-nomak_ turns off P filtering of SNPs (1000 Genome Project strict mask) for BAF signal.</code></pre>
+<p><strong>Example:</strong></p>
+<p>Genotype all called CNVs:</p>
+<pre><code>&gt; awk &#39;{ print $2 }&#39; calls.10000.tsv | cnvpytor -root file.pytor -genotype 10000 100000</code></pre>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="calling-cnv-from-alignment-file-using-terminal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
