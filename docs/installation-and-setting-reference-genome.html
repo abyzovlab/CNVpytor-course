@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Installation and Setting Reference genome | Copy Number Analysis using CNVpytor</title>
   <meta name="description" content="Chapter 2 Installation and Setting Reference genome | Copy Number Analysis using CNVpytor" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Installation and Setting Reference genome | Copy Number Analysis using CNVpytor" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Chapter 2 Installation and Setting Reference genome | Copy Number Analysis using CNVpytor" />
   
@@ -31,7 +30,6 @@
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="introduction.html"/>
 <link rel="next" href="calling-cnv-from-alignment-file-using-terminal.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,11 +47,16 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
@@ -163,10 +166,10 @@
 <div class="hero-image-container">
   <img class= "hero-image" src= "https://github.com/jhudsl/OTTR_Template/raw/main/assets/dasl_thin_main_image.png">
 </div>
-<div id="installation-and-setting-reference-genome" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Installation and Setting Reference genome</h1>
-<div id="learning-objectives" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Learning Objectives</h2>
+<div id="installation-and-setting-reference-genome" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Installation and Setting Reference genome<a href="installation-and-setting-reference-genome.html#installation-and-setting-reference-genome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-objectives" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Learning Objectives<a href="installation-and-setting-reference-genome.html#learning-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This chapter will cover:</p>
 <ul>
 <li>Installation
@@ -180,16 +183,16 @@
 </ul></li>
 </ul>
 </div>
-<div id="libraries" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Libraries</h2>
+<div id="libraries" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Libraries<a href="installation-and-setting-reference-genome.html#libraries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>CNVpytor is written in python and it works on both python 2 and 3. Please install python before proceeding with the installation steps.</p>
 <p>The following code can be used to check python version</p>
 <pre><code>python --version</code></pre>
 </div>
-<div id="installation" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Installation</h2>
-<div id="install-by-cloning-from-github" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Install by cloning from GitHub</h3>
+<div id="installation" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Installation<a href="installation-and-setting-reference-genome.html#installation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="install-by-cloning-from-github" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Install by cloning from GitHub<a href="installation-and-setting-reference-genome.html#install-by-cloning-from-github" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following lines of codes can be used to install directly from GitHub</p>
 <pre><code>&gt; git clone https://github.com/abyzovlab/CNVpytor.git
 &gt; cd CNVpytor
@@ -197,14 +200,14 @@
 <p>For single user (without admin privileges), can use:</p>
 <pre><code>&gt; pip install --user .</code></pre>
 </div>
-<div id="install-using-pip" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Install using pip</h3>
+<div id="install-using-pip" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Install using pip<a href="installation-and-setting-reference-genome.html#install-using-pip" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following code will download the latest code from GitHub and use pip to install.</p>
 <pre><code>pip install git+https://github.com/abyzovlab/CNVpytor.git</code></pre>
 </div>
 </div>
-<div id="steps-for-setting-reference-genome" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Steps for setting reference genome</h2>
+<div id="steps-for-setting-reference-genome" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Steps for setting reference genome<a href="installation-and-setting-reference-genome.html#steps-for-setting-reference-genome" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Commonly used human reference genomes (HG19 and HG38) are integrated and comes with default GitHub installation. Its detects the genome by comparing the chromosome lengths. Although, other reference genomes are also frequently used in practice. This section will guide one to add a new reference genome.</p>
 <p>Now, we will create example configuration file for mouse reference genome <code>MGSCv37</code> which contains a list of chromosomes and chromosome lengths:</p>
 <pre><code># Filename: example_ref_genome_conf.py
@@ -232,8 +235,8 @@ import_reference_genomes = {
 <p>CNVpytor will use chromosome lengths from alignment file to detect reference genome. However, if you configured reference genome after you had already run -rd step you could assign reference genome using <code>-rg</code>:</p>
 <pre><code>cnvpytor -conf REL_PATH/example_ref_genome_conf.py -root file.pytor -rg mm9</code></pre>
 <p>To avoid typing <code>-conf REL_PATH/example_ref_genome_conf.py</code> each time you run <code>cnvpytor</code>, you can create an bash alias or make configuration permanent by copying <code>example_ref_genome_conf.py</code> to <code>~/.cnvpytor/reference_genomes_conf.py</code>.</p>
-<div id="create-gc-and-mask-file-for-new-reference-genome" class="section level3" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Create GC and mask file for new reference genome</h3>
+<div id="create-gc-and-mask-file-for-new-reference-genome" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Create GC and mask file for new reference genome<a href="installation-and-setting-reference-genome.html#create-gc-and-mask-file-for-new-reference-genome" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>CNVpytor also has optional features for GC correction and masking (i.e., commonly known false positive regions). One can setup their reference genome by adding its related content in the <code>gc_file</code> and <code>mask_file</code> field of the configuration file.</p>
 <p>To create <code>GC</code> file, we need sequence of the reference genome in <code>fasta.gz</code> file:</p>
 <pre><code>&gt; cnvpytor -root MGSCv37_gc_file.pytor -gc ~/hg19/mouse.fasta.gz -make_gc_file</code></pre>

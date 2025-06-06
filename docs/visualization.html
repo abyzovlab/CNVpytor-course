@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Visualization | Copy Number Analysis using CNVpytor</title>
   <meta name="description" content="Chapter 5 Visualization | Copy Number Analysis using CNVpytor" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Visualization | Copy Number Analysis using CNVpytor" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Chapter 5 Visualization | Copy Number Analysis using CNVpytor" />
   
@@ -31,7 +30,6 @@
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="data-import.html"/>
 <link rel="next" href="visualize-cnvpytor-data-inside-jbrowse.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,11 +47,16 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
@@ -163,17 +166,17 @@
 <div class="hero-image-container">
   <img class= "hero-image" src= "https://github.com/jhudsl/OTTR_Template/raw/main/assets/dasl_thin_main_image.png">
 </div>
-<div id="visualization" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Visualization</h1>
-<div id="learning-objectives-3" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Learning Objectives</h2>
+<div id="visualization" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Visualization<a href="visualization.html#visualization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-objectives-3" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Learning Objectives<a href="visualization.html#learning-objectives-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This chapter will cover:</p>
 <ul>
 <li>Visualization in command line mode</li>
 <li>Interactive visualization</li>
 </ul>
-<div id="plot-from-command-line" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Plot from command line</h3>
+<div id="plot-from-command-line" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Plot from command line<a href="visualization.html#plot-from-command-line" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Chromosome wide plots:</p>
 <pre><code>&gt; cnvpytor -root file.pytor -plot [rd BIN_SIZE] [likelihood BIN_SIZE] [baf BIN_SIZE] [snp] [-o IMAGE_FILENAME]</code></pre>
 <p>where
@@ -195,8 +198,8 @@
 * -panels – specify which panels to plot: rd likelihood baf snp
 * -o IMAGE_FILENAME – if specified, saves plot in file instead to show on the screen</p>
 </div>
-<div id="plot-from-interactive-mode" class="section level3" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Plot from interactive mode</h3>
+<div id="plot-from-interactive-mode" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Plot from interactive mode<a href="visualization.html#plot-from-interactive-mode" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The best way to visualize CNVpytor results is interactive mode. Enter interactive mode by typing:</p>
 <pre><code>cnvpytor -root file.pytor -view BIN_SIZE</code></pre>
 <p>There is tab completion and help similar to man pages. Type double tab or help to start.</p>

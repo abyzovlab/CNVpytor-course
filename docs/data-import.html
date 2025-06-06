@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Data import | Copy Number Analysis using CNVpytor</title>
   <meta name="description" content="Chapter 4 Data import | Copy Number Analysis using CNVpytor" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Data import | Copy Number Analysis using CNVpytor" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Chapter 4 Data import | Copy Number Analysis using CNVpytor" />
   
@@ -31,7 +30,6 @@
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="calling-cnv-from-alignment-file-using-terminal.html"/>
 <link rel="next" href="visualization.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,11 +47,16 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
@@ -163,17 +166,17 @@
 <div class="hero-image-container">
   <img class= "hero-image" src= "https://github.com/jhudsl/OTTR_Template/raw/main/assets/dasl_thin_main_image.png">
 </div>
-<div id="data-import" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Data import</h1>
-<div id="learning-objectives-2" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Learning Objectives</h2>
+<div id="data-import" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Data import<a href="data-import.html#data-import" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-objectives-2" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Learning Objectives<a href="data-import.html#learning-objectives-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Import read depth signal</li>
 <li>Import variant information</li>
 </ul>
 </div>
-<div id="import-read-depth-signal" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Import read depth signal</h2>
+<div id="import-read-depth-signal" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Import read depth signal<a href="data-import.html#import-read-depth-signal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Make sure that you have indexed alignment (SAM, BAM or CRAM) file.
 Initialize your CNVpytor project by running:</p>
 <pre><code>&gt; cnvpytor -root file.pytor -rd file.bam [-chrom name1 ...] [-T ref.fa.gz]</code></pre>
@@ -204,8 +207,8 @@ Note that the pytor file is not being overwritten.</p>
 in <em>pytor</em> file.</p>
 <p>Chromosome names and lengths are parsed from the input file header and used to
 detect reference genome.</p>
-<div id="check-reference-genome" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> check reference genome</h3>
+<div id="check-reference-genome" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> check reference genome<a href="data-import.html#check-reference-genome" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To check is reference genome detected use:</p>
 <pre><code>&gt; cnvpytor -root file.pytor -ls</code></pre>
 <p>CNVpytor will print out details about file.pytor including line that specify which reference genome is
@@ -214,8 +217,8 @@ used and are there available GC and mask data:</p>
 <p>Command <code>-ls</code> is useful if you want to check content of <em>pytor</em> file but also date and version of CNVpytor
 that created it.</p>
 </div>
-<div id="predicting-cnv-regions" class="section level3" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Predicting CNV regions</h3>
+<div id="predicting-cnv-regions" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Predicting CNV regions<a href="data-import.html#predicting-cnv-regions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>First we have to chose bin size. By CNVpytor design it have to be divisible by 100.
 Here we will use 10 kbp and 100 kbp bins.</p>
 <p>To calculate read depth histograms, GC correction and statistics type:</p>
@@ -259,10 +262,10 @@ column with sample name in tsv format, multiple sheets in Excel format, and
 multiple sample columns in vcf format.</p>
 </div>
 </div>
-<div id="import-snp-data" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Import SNP data</h2>
-<div id="from-variant-file" class="section level3" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> From variant file</h3>
+<div id="import-snp-data" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Import SNP data<a href="data-import.html#import-snp-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="from-variant-file" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> From variant file<a href="data-import.html#from-variant-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To import variant data from VCF file use following command:</p>
 <pre><code>&gt; cnvpytor -root file.pytor -snp file.vcf.gz [-sample sample_name] [-chrom name1 ...] [-ad AD_TAG] [-gt GT_TAG] [-noAD]</code></pre>
 <p>where:</p>
@@ -279,8 +282,8 @@ all chromosomes from the vcf file will be parsed.</p>
 <p>If chromosome names in variant and alignment file are different in prefix chr (e.g. in “1” and “chr1”)
 CNVpytor will detect it and match the names using first imported name for both signals.</p>
 </div>
-<div id="using-snp-positions-from-variant-file-and-counts-from-alignment-file" class="section level3" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Using SNP positions from variant file and counts from alignment file</h3>
+<div id="using-snp-positions-from-variant-file-and-counts-from-alignment-file" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Using SNP positions from variant file and counts from alignment file<a href="data-import.html#using-snp-positions-from-variant-file-and-counts-from-alignment-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In some cases it is useful to read positions of SNPs from vcf file and
 extract read counts from bam file. For example if we have two samples, normal tissue and
 cancer, normal can be used to call germline SNPs, while <code>samtools mpileup</code> procedure can be used
@@ -292,15 +295,15 @@ implemented this procedure. After reading SNP positions (previous step) type:</p
 * file.bam -- specifies bam/sam/cram file,
 * -T ref.fa.gz -- specifies reference genome file (only for cram file without reference genome).</code></pre>
 </div>
-<div id="calculating-baf-histograms" class="section level3" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Calculating BAF histograms</h3>
+<div id="calculating-baf-histograms" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Calculating BAF histograms<a href="data-import.html#calculating-baf-histograms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To apply 1000 genomes strict mask filter:</p>
 <pre><code>&gt; cnvpytor -root file.pytor -mask_snps</code></pre>
 <p>To calculate baf histograms for maf, baf and likelihood function for baf use:</p>
 <pre><code>&gt; cnvpytor -root file.pytor -baf 10000 100000 [-nomask]</code></pre>
 </div>
-<div id="predicting-cnv-regions-using-joint-caller-prototype" class="section level3" number="4.3.4">
-<h3><span class="header-section-number">4.3.4</span> Predicting CNV regions using joint caller (prototype)</h3>
+<div id="predicting-cnv-regions-using-joint-caller-prototype" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Predicting CNV regions using joint caller (prototype)<a href="data-import.html#predicting-cnv-regions-using-joint-caller-prototype" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Finally we can call CNV regions using commands:</p>
 <pre><code>&gt; cnvpytor -root file.pytor -call combined 10000 &gt; calls.combined.10000.tsv
 &gt; cnvpytor -root file.pytor -call combined 100000 &gt; calls.combined.100000.tsv</code></pre>
@@ -356,8 +359,8 @@ multiple sample columns in vcf format.</p>
 <p><img src="https://raw.githubusercontent.com/abyzovlab/CNVpytor/master/imgs/joint_caller_output.png"></p>
 </div>
 </div>
-<div id="genotyping-genomic-regions" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Genotyping genomic regions</h2>
+<div id="genotyping-genomic-regions" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Genotyping genomic regions<a href="data-import.html#genotyping-genomic-regions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Using -genotype option followed by bin_sizes you can enter region and genotype calculation
 for each bin size will be performed:</p>
 <pre><code>&gt; cnvpytor -root file.pytor -genotype 10000 100000

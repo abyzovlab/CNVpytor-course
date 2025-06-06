@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Visualize CNVpytor data inside JBrowse | Copy Number Analysis using CNVpytor</title>
   <meta name="description" content="Chapter 6 Visualize CNVpytor data inside JBrowse | Copy Number Analysis using CNVpytor" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Visualize CNVpytor data inside JBrowse | Copy Number Analysis using CNVpytor" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Chapter 6 Visualize CNVpytor data inside JBrowse | Copy Number Analysis using CNVpytor" />
   
@@ -31,7 +30,6 @@
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="visualization.html"/>
 <link rel="next" href="about-the-authors.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,11 +47,16 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
@@ -163,17 +166,17 @@
 <div class="hero-image-container">
   <img class= "hero-image" src= "https://github.com/jhudsl/OTTR_Template/raw/main/assets/dasl_thin_main_image.png">
 </div>
-<div id="visualize-cnvpytor-data-inside-jbrowse" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Visualize CNVpytor data inside JBrowse</h1>
-<div id="learning-objectives-4" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Learning Objectives</h2>
+<div id="visualize-cnvpytor-data-inside-jbrowse" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Visualize CNVpytor data inside JBrowse<a href="visualize-cnvpytor-data-inside-jbrowse.html#visualize-cnvpytor-data-inside-jbrowse" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-objectives-4" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Learning Objectives<a href="visualize-cnvpytor-data-inside-jbrowse.html#learning-objectives-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This chapter will cover:</p>
 <ul>
 <li>How to visualize CNVpytor data in JBrowse.</li>
 </ul>
 </div>
-<div id="libraries-1" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Libraries</h2>
+<div id="libraries-1" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Libraries<a href="visualize-cnvpytor-data-inside-jbrowse.html#libraries-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <pre><code>JBrowse version: https://github.com/GMOD/jbrowse/archive/1.16.6-release.tar.gz
  Plugins: 
  - multibigwig (https://github.com/elsiklab/multibigwig )
@@ -181,8 +184,8 @@
 
  **Note:** The JBrowse development version is required as integration of different jbrowse plugins are needed.</code></pre>
 </div>
-<div id="steps-to-process-cnvpytor-data-for-jbrowse-integration" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Steps to process CNVpytor data for JBrowse integration</h2>
+<div id="steps-to-process-cnvpytor-data-for-jbrowse-integration" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Steps to process CNVpytor data for JBrowse integration<a href="visualize-cnvpytor-data-inside-jbrowse.html#steps-to-process-cnvpytor-data-for-jbrowse-integration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To generate CNVpytor file for JBrowse visualization:</p>
 <pre><code>cnvpytor -root [pytor files] -export jbrowse [optional argument: output path]
 
@@ -195,8 +198,8 @@ Default export directory name:
 <pre><code># Example usage
 cnvpytor -root test.pytor -export jbrowse
 http://localhost/jbrowse/?data=jbrowse_test</code></pre>
-<div id="data-description" class="section level4" number="6.3.0.1">
-<h4><span class="header-section-number">6.3.0.1</span> Data Description</h4>
+<div id="data-description" class="section level4 hasAnchor" number="6.3.0.1">
+<h4><span class="header-section-number">6.3.0.1</span> Data Description<a href="visualize-cnvpytor-data-inside-jbrowse.html#data-description" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>There are mainly two types of data CNVpytor processes. i.e.; Read depth data from alignment file and SNP data from variant file. Depending on the availability of these two input data, the export function works.</p>
 <p>For Read depth data, it exports Raw segmented RD, GC corrected Raw Segmented RD, GC corrected RD partition, CNV calling using RD . All of these Read depth signals are plotted on top of each other on a single horizontal track using color gray, black, red and green respectively.
 For SNP data, it exports Binned BAF, Likelihood of the binned BAF signals. These two signals are plotted on top of each other with gray and red color.</p>
